@@ -1,0 +1,222 @@
+---
+import { musicPlatforms } from '../data/socialLinks.js';
+---
+
+<section id="music" class="section music-section">
+  <div class="container">
+    <h2>
+      Listen
+      <svg class="wavy-underline" viewBox="0 0 120 8" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 4 Q 10 1, 20 4 T 40 4 T 60 4 T 80 4 T 100 4 T 118 4" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </svg>
+    </h2>
+
+    <div class="platforms-grid">
+      {
+        musicPlatforms.map((platform, index) => {
+          const rotations = ['-2deg', '1.5deg', '-1deg', '2deg'];
+          const rotation = rotations[index % rotations.length];
+          return (
+            <a href={platform.url} class="platform-card" target="_blank" rel="noopener noreferrer" style={`--rotation: ${rotation}`}>
+              <div class="platform-icon" style={`background-color: ${platform.color}`}>
+                <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d={platform.icon} />
+                </svg>
+              </div>
+              <h3>{platform.name}</h3>
+              <p>Listen on {platform.name}</p>
+            </a>
+          );
+        })
+      }
+    </div>
+
+    <div class="video-section">
+      <h3>Latest Video</h3>
+      <div class="video-container">
+        <iframe
+          src="https://www.youtube.com/embed/zNSEwreNbI0?start=23"
+          title="On the Sun Kissed Hills of San Francisco"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .music-section {
+    background-color: var(--color-cream);
+    padding-bottom: var(--spacing-xl) !important;
+    position: relative;
+  }
+
+  /* Subtle texture overlay */
+  .music-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.01) 2px,
+        rgba(0, 0, 0, 0.01) 4px
+      );
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .music-section h2 {
+    text-align: center;
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Wavy hand-drawn underline */
+  .wavy-underline {
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 8px;
+    color: var(--color-sun-orange);
+    opacity: 0.9;
+  }
+
+  .platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+    position: relative;
+    z-index: 1;
+  }
+
+  .platform-card {
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-xl);
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transform: rotate(var(--rotation));
+    position: relative;
+  }
+
+  /* Paper texture on cards */
+  .platform-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--border-radius);
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.015) 2px,
+        rgba(0, 0, 0, 0.015) 4px
+      );
+    pointer-events: none;
+  }
+
+  .platform-card:hover {
+    transform: rotate(var(--rotation)) translateY(-8px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .platform-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+  }
+
+  .platform-icon svg {
+    width: 45px;
+    height: 45px;
+  }
+
+  .platform-card h3 {
+    font-size: var(--font-size-h3);
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .platform-card p {
+    font-size: var(--font-size-base);
+    color: var(--color-gray);
+    margin: 0;
+  }
+
+  .video-section {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .video-section h3 {
+    font-size: var(--font-size-h2);
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    display: inline-block;
+  }
+
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-md);
+    transform: rotate(-0.5deg);
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+  }
+
+  @media (max-width: 640px) {
+    .platforms-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .platform-card {
+      transform: rotate(0deg);
+    }
+
+    .platform-card:hover {
+      transform: rotate(0deg) translateY(-6px);
+    }
+  }
+</style>

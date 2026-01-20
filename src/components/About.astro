@@ -1,0 +1,134 @@
+---
+---
+
+<section id="about" class="section about-section">
+  <div class="container">
+    <div class="about-content">
+      <h2>
+        About
+        <svg class="wavy-underline" viewBox="0 0 100 8" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 4 Q 8 1, 16 4 T 32 4 T 48 4 T 64 4 T 80 4 T 98 4" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </h2>
+      <div class="about-text">
+        <p>
+          sunkissed started as a move — not a band. Two friends packed up their lives in Toronto and landed in San Francisco. It wasn't until six months later—after soaking in the Californian sun and feeling the late-night breeze—the music started flowing. What emerged was a hazy blend of indie rock, surf-tinged guitars, dreamy bedroom pop, and the occasional psychedelic drift. Now a four-piece, sunkissed makes music that feels like sun-faded memories—nostalgic, a little restless, and entirely their own.
+        </p>
+        <p>
+          Their debut single, "On the Sun Kissed Hills of San Francisco," is a raw, honest reflection on leaving Toronto for San Francisco, capturing the emotions felt while living in a new city. The song emerged from a simple guitar riff during a moment of inspiration while watching sunlight pour across hills of San Franciscan houses. Living just minutes from Haight-Ashbury—the birthplace of '60s counterculture—the track soaked up the neighborhood's storied spirit, blending it with their evolving connection to the city.
+        </p>
+        <p>
+          Their newest single, Echos, is an energetic track that contrasts the tension between the joy of experiencing something new with the nostalgia of letting go of the past. The sound is dreamy, yet a little hazy, like a memory slowly fading away.
+        </p>
+        <p>
+          With a new EP on the horizon, sunkissed continues to evolve their sound—leaning deeper into the tones and textures that make their music feel like both a memory and a moment.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="/cover_photo.jpeg" alt="Sunkissed Band" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    background-color: var(--color-white);
+    position: relative;
+  }
+
+  /* Subtle texture overlay */
+  .about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.008) 2px,
+        rgba(0, 0, 0, 0.008) 4px
+      );
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-content h2 {
+    color: var(--color-charcoal);
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Wavy hand-drawn underline */
+  .wavy-underline {
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 8px;
+    color: var(--color-sun-orange);
+    opacity: 0.9;
+  }
+
+  .about-text {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .about-text p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .about-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-image {
+    margin-top: var(--spacing-xl);
+  }
+
+  .about-image img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    transform: rotate(-1deg);
+    transition: transform 0.3s ease;
+  }
+
+  .about-image img:hover {
+    transform: rotate(0deg) scale(1.02);
+  }
+
+  @media (max-width: 640px) {
+    .about-text p {
+      font-size: 1rem;
+    }
+
+    .about-image img {
+      max-width: 100%;
+      transform: rotate(0deg);
+    }
+
+    .about-image img:hover {
+      transform: rotate(0deg) scale(1.01);
+    }
+  }
+</style>
