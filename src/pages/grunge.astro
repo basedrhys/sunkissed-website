@@ -1,0 +1,831 @@
+---
+import { socialLinks, musicPlatforms } from '../data/socialLinks.js';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sunkissed - Indie Rock Band" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <title>Sunkissed - Grunge</title>
+  </head>
+  <body>
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Style Switcher -->
+    <nav class="style-switcher">
+      <span class="switcher-label">STYLE:</span>
+      <a href="/vintage">70s</a>
+      <a href="/minimalist">Minimal</a>
+      <a href="/dreamy">Dreamy</a>
+      <a href="/grunge" class="active">Grunge</a>
+      <a href="/">Original</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="scan-lines"></div>
+      <div class="hero-content">
+        <div class="logo-glitch">
+          <img src="/logo.png" alt="Sunkissed" class="logo" />
+          <img src="/logo.png" alt="" class="logo logo-glitch-1" aria-hidden="true" />
+          <img src="/logo.png" alt="" class="logo logo-glitch-2" aria-hidden="true" />
+        </div>
+        <h1 class="hero-title">
+          <span class="title-line">SUNK</span>
+          <span class="title-line">ISSED</span>
+        </h1>
+        <p class="hero-tagline">INDIE ROCK • RAW & UNFILTERED</p>
+        <div class="hero-cta">
+          <a href="#music" class="btn-grunge">LISTEN NOW</a>
+          <a href="#about" class="btn-grunge-outline">ABOUT US</a>
+        </div>
+      </div>
+      <div class="corner-frame top-left"></div>
+      <div class="corner-frame top-right"></div>
+      <div class="corner-frame bottom-left"></div>
+      <div class="corner-frame bottom-right"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-number">[01]</span>
+          <h2 class="section-title">THE STORY</h2>
+          <div class="title-strike"></div>
+        </div>
+
+        <div class="about-layout">
+          <div class="about-image">
+            <div class="image-border">
+              <img src="/cover_photo.jpeg" alt="Sunkissed Band" />
+              <div class="image-overlay-text">EST. 2024</div>
+            </div>
+          </div>
+
+          <div class="about-text">
+            <div class="text-block">
+              <p class="lead-text">
+                SUNKISSED STARTED AS A MOVE — NOT A BAND.
+              </p>
+              <p>
+                Two friends packed up their lives in Toronto and landed in San Francisco. It wasn't until six months later—after soaking in the Californian sun and feeling the late-night breeze—the music started flowing.
+              </p>
+              <p>
+                What emerged was a hazy blend of indie rock, surf-tinged guitars, dreamy bedroom pop, and the occasional psychedelic drift. Now a four-piece, sunkissed makes music that feels like sun-faded memories—nostalgic, a little restless, and entirely their own.
+              </p>
+            </div>
+
+            <div class="text-divider">///</div>
+
+            <div class="text-block">
+              <p>
+                Their debut single, <strong>"On the Sun Kissed Hills of San Francisco,"</strong> is a raw, honest reflection on leaving Toronto for San Francisco. The song emerged from a simple guitar riff during a moment of inspiration while watching sunlight pour across hills of San Franciscan houses.
+              </p>
+              <p>
+                Their newest single, <strong>Echos</strong>, is an energetic track that contrasts the tension between the joy of experiencing something new with the nostalgia of letting go of the past.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="music-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-number">[02]</span>
+          <h2 class="section-title">LISTEN</h2>
+          <div class="title-strike"></div>
+        </div>
+
+        <div class="platforms-list">
+          {musicPlatforms.map((platform, index) => (
+            <a
+              href={platform.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-item"
+            >
+              <div class="platform-left">
+                <span class="platform-number">[0{index + 1}]</span>
+                <span class="platform-name">{platform.name.toUpperCase()}</span>
+              </div>
+              <div class="platform-icon-wrapper">
+                <svg viewBox="0 0 24 24" class="platform-icon">
+                  <path d={platform.icon} fill="currentColor" />
+                </svg>
+                <span class="platform-arrow">→</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-number">[03]</span>
+          <h2 class="section-title">CONNECT</h2>
+          <div class="title-strike"></div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="social-list">
+            <h3 class="subsection-title">SOCIAL MEDIA</h3>
+            {socialLinks.map((link) => (
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-link"
+              >
+                <span class="link-bracket">[</span>
+                {link.name.toUpperCase()}
+                <span class="link-bracket">]</span>
+              </a>
+            ))}
+          </div>
+
+          <div class="newsletter-box">
+            <h3 class="subsection-title">NEWSLETTER</h3>
+            <p class="newsletter-desc">
+              Get updates on new releases, shows, and exclusive content.
+            </p>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="newsletter-form">
+              <input type="email" name="email" placeholder="EMAIL ADDRESS" required />
+              <button type="submit" class="btn-grunge">SUBSCRIBE</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p>&copy; 2024 SUNKISSED</p>
+          <p class="footer-tag">MADE WITH NOISE</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --black: #0A0A0A;
+    --dark-gray: #1A1A1A;
+    --mid-gray: #2A2A2A;
+    --light-gray: #B0B0B0;
+    --white: #F0F0F0;
+    --accent-red: #DC143C;
+    --accent-yellow: #FDB927;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: var(--black);
+    color: var(--white);
+    line-height: 1.6;
+    position: relative;
+  }
+
+  .noise-overlay {
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: overlay;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Style Switcher */
+  .style-switcher {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark-gray);
+    border: 2px solid var(--mid-gray);
+    padding: 8px 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    z-index: 10000;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .switcher-label {
+    color: var(--light-gray);
+  }
+
+  .style-switcher a {
+    color: var(--light-gray);
+    text-decoration: none;
+    padding: 4px 8px;
+    transition: all 0.2s ease;
+    border-bottom: 2px solid transparent;
+  }
+
+  .style-switcher a:hover,
+  .style-switcher a.active {
+    color: var(--accent-red);
+    border-bottom-color: var(--accent-red);
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(180deg, var(--black) 0%, var(--dark-gray) 100%);
+    padding: 4rem 2rem;
+    overflow: hidden;
+  }
+
+  .scan-lines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.03) 2px,
+      rgba(255, 255, 255, 0.03) 4px
+    );
+    pointer-events: none;
+  }
+
+  .corner-frame {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--accent-red);
+  }
+
+  .corner-frame.top-left {
+    top: 20px;
+    left: 20px;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .corner-frame.top-right {
+    top: 20px;
+    right: 20px;
+    border-left: none;
+    border-bottom: none;
+  }
+
+  .corner-frame.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    border-right: none;
+    border-top: none;
+  }
+
+  .corner-frame.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    border-left: none;
+    border-top: none;
+  }
+
+  .hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-glitch {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 3rem;
+  }
+
+  .logo {
+    width: 250px;
+    height: auto;
+    filter: grayscale(100%) contrast(120%);
+  }
+
+  .logo-glitch-1,
+  .logo-glitch-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+
+  .logo-glitch:hover .logo-glitch-1 {
+    animation: glitch-1 0.3s infinite;
+  }
+
+  .logo-glitch:hover .logo-glitch-2 {
+    animation: glitch-2 0.3s infinite reverse;
+  }
+
+  @keyframes glitch-1 {
+    0%, 100% {
+      transform: translate(0);
+      opacity: 0;
+    }
+    33% {
+      transform: translate(-3px, 2px);
+      opacity: 0.8;
+      filter: grayscale(100%) contrast(120%) hue-rotate(90deg);
+    }
+  }
+
+  @keyframes glitch-2 {
+    0%, 100% {
+      transform: translate(0);
+      opacity: 0;
+    }
+    33% {
+      transform: translate(3px, -2px);
+      opacity: 0.8;
+      filter: grayscale(100%) contrast(120%) hue-rotate(270deg);
+    }
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 8rem;
+    line-height: 0.85;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+  }
+
+  .title-line {
+    display: block;
+    position: relative;
+  }
+
+  .title-line:first-child {
+    color: var(--white);
+  }
+
+  .title-line:last-child {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--accent-red);
+    text-stroke: 2px var(--accent-red);
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--light-gray);
+    margin-bottom: 3rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-grunge,
+  .btn-grunge-outline {
+    padding: 15px 40px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-grunge {
+    background: var(--accent-red);
+    color: var(--black);
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  }
+
+  .btn-grunge:hover {
+    background: var(--white);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--accent-red);
+  }
+
+  .btn-grunge-outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  }
+
+  .btn-grunge-outline:hover {
+    background: var(--white);
+    color: var(--black);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--white);
+  }
+
+  /* Section Styles */
+  section {
+    padding: 6rem 0;
+    position: relative;
+  }
+
+  .section-header {
+    margin-bottom: 4rem;
+    position: relative;
+  }
+
+  .section-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: var(--accent-red);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4.5rem;
+    letter-spacing: 0.05em;
+    position: relative;
+    display: inline-block;
+  }
+
+  .title-strike {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-red);
+    transform: skewY(-2deg);
+  }
+
+  /* About Section */
+  .about-section {
+    background: var(--dark-gray);
+  }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .image-border {
+    position: relative;
+    border: 3px solid var(--mid-gray);
+    padding: 15px;
+    transition: all 0.3s ease;
+  }
+
+  .image-border:hover {
+    border-color: var(--accent-red);
+    transform: translate(-5px, -5px);
+    box-shadow: 8px 8px 0 var(--mid-gray);
+  }
+
+  .image-border img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(30%) contrast(110%);
+  }
+
+  .image-overlay-text {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--accent-red);
+    background: var(--black);
+    padding: 5px 15px;
+    letter-spacing: 3px;
+  }
+
+  .text-block p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--light-gray);
+  }
+
+  .lead-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem !important;
+    letter-spacing: 1px;
+    color: var(--white) !important;
+    line-height: 1.4 !important;
+  }
+
+  .text-block strong {
+    color: var(--accent-yellow);
+    font-weight: 700;
+  }
+
+  .text-divider {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--accent-red);
+    margin: 2rem 0;
+    letter-spacing: 5px;
+  }
+
+  /* Music Section */
+  .music-section {
+    background: var(--black);
+  }
+
+  .platforms-list {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .platform-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    border: 2px solid var(--mid-gray);
+    border-bottom: none;
+    background: var(--dark-gray);
+    text-decoration: none;
+    color: var(--white);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .platform-item:last-child {
+    border-bottom: 2px solid var(--mid-gray);
+  }
+
+  .platform-item:hover {
+    background: var(--mid-gray);
+    border-color: var(--accent-red);
+    transform: translateX(10px);
+    z-index: 10;
+  }
+
+  .platform-left {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .platform-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--accent-red);
+  }
+
+  .platform-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .platform-icon-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .platform-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--light-gray);
+  }
+
+  .platform-arrow {
+    font-size: 2rem;
+    color: var(--accent-red);
+    transition: transform 0.3s ease;
+  }
+
+  .platform-item:hover .platform-arrow {
+    transform: translateX(10px);
+  }
+
+  /* Contact Section */
+  .contact-section {
+    background: var(--dark-gray);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+  }
+
+  .subsection-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    color: var(--accent-yellow);
+  }
+
+  .social-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .social-link {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.75rem 0;
+    border-left: 3px solid transparent;
+    padding-left: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .social-link:hover {
+    border-left-color: var(--accent-red);
+    color: var(--accent-red);
+    padding-left: 1.5rem;
+  }
+
+  .link-bracket {
+    color: var(--accent-red);
+  }
+
+  .newsletter-box {
+    background: var(--mid-gray);
+    border: 2px solid var(--mid-gray);
+    padding: 3rem;
+  }
+
+  .newsletter-desc {
+    color: var(--light-gray);
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .newsletter-form input {
+    padding: 15px 20px;
+    background: var(--dark-gray);
+    border: 2px solid var(--mid-gray);
+    color: var(--white);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: border-color 0.3s ease;
+  }
+
+  .newsletter-form input:focus {
+    outline: none;
+    border-color: var(--accent-red);
+  }
+
+  .newsletter-form input::placeholder {
+    color: var(--light-gray);
+    opacity: 0.7;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 3rem 0;
+    background: var(--black);
+    border-top: 2px solid var(--mid-gray);
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: var(--light-gray);
+  }
+
+  .footer-tag {
+    color: var(--accent-red);
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .style-switcher {
+      flex-wrap: wrap;
+      padding: 6px 12px;
+      gap: 8px;
+      font-size: 0.7rem;
+    }
+
+    .switcher-label {
+      width: 100%;
+      text-align: center;
+      font-size: 0.7rem;
+    }
+
+    .style-switcher a {
+      font-size: 0.7rem;
+      padding: 3px 6px;
+    }
+
+    .corner-frame {
+      width: 40px;
+      height: 40px;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+    }
+
+    .logo {
+      width: 180px;
+    }
+
+    .section-title {
+      font-size: 3rem;
+    }
+
+    .about-layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .platform-left {
+      gap: 1rem;
+    }
+
+    .platform-name {
+      font-size: 1.5rem;
+    }
+
+    .platform-icon-wrapper {
+      gap: 0.75rem;
+    }
+
+    .platform-icon {
+      width: 30px;
+      height: 30px;
+    }
+
+    .newsletter-box {
+      padding: 2rem 1.5rem;
+    }
+
+    .footer-content {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }
+</style>

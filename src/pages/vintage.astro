@@ -1,0 +1,596 @@
+---
+import { socialLinks, musicPlatforms } from '../data/socialLinks.js';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sunkissed - Indie Rock Band" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Epilogue:wght@400;600;700&display=swap" rel="stylesheet" />
+    <title>Sunkissed - Vintage Vibes</title>
+  </head>
+  <body>
+    <!-- Style Switcher -->
+    <nav class="style-switcher">
+      <span class="switcher-label">Try Different Styles:</span>
+      <a href="/vintage" class="active">70s Vintage</a>
+      <a href="/minimalist">Minimalist</a>
+      <a href="/dreamy">Dreamy</a>
+      <a href="/grunge">Grunge</a>
+      <a href="/">Original</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="grain-overlay"></div>
+      <div class="sun-rays"></div>
+      <div class="hero-content">
+        <img src="/logo.png" alt="Sunkissed Logo" class="logo" />
+        <h1 class="vintage-title">Sunkissed</h1>
+        <p class="tagline">Groovy Indie Rock Vibes</p>
+        <div class="cta-buttons">
+          <a href="#music" class="btn-vintage">Listen Now</a>
+          <a href="#about" class="btn-vintage-outline">Our Story</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <h2 class="section-title">About the Band</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              sunkissed started as a move — not a band. Two friends packed up their lives in Toronto and landed in San Francisco. It wasn't until six months later—after soaking in the Californian sun and feeling the late-night breeze—the music started flowing.
+            </p>
+            <p>
+              What emerged was a hazy blend of indie rock, surf-tinged guitars, dreamy bedroom pop, and the occasional psychedelic drift. Now a four-piece, sunkissed makes music that feels like sun-faded memories—nostalgic, a little restless, and entirely their own.
+            </p>
+          </div>
+          <div class="about-image">
+            <div class="polaroid">
+              <img src="/cover_photo.jpeg" alt="Sunkissed Band" />
+              <p class="polaroid-caption">The Band • SF '24</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-more">
+          <p>
+            Their debut single, "On the Sun Kissed Hills of San Francisco," is a raw, honest reflection on leaving Toronto for San Francisco, capturing the emotions felt while living in a new city. The song emerged from a simple guitar riff during a moment of inspiration while watching sunlight pour across hills of San Franciscan houses.
+          </p>
+          <p>
+            Their newest single, Echos, is an energetic track that contrasts the tension between the joy of experiencing something new with the nostalgia of letting go of the past. The sound is dreamy, yet a little hazy, like a memory slowly fading away.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="music-section">
+      <div class="container">
+        <h2 class="section-title">Listen on Your Favorite Platform</h2>
+        <div class="platforms-grid">
+          {musicPlatforms.map((platform) => (
+            <a href={platform.url} target="_blank" rel="noopener noreferrer" class="platform-card">
+              <svg viewBox="0 0 24 24" class="platform-icon">
+                <path d={platform.icon} fill="currentColor" />
+              </svg>
+              <span class="platform-name">{platform.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <h2 class="section-title">Stay Connected</h2>
+        <div class="social-grid">
+          {socialLinks.map((link) => (
+            <a href={link.url} target="_blank" rel="noopener noreferrer" class="social-link">
+              <svg viewBox="0 0 24 24" class="social-icon">
+                <path d={link.icon} fill="currentColor" />
+              </svg>
+              <span>{link.name}</span>
+            </a>
+          ))}
+        </div>
+
+        <div class="newsletter">
+          <h3>Join Our Newsletter</h3>
+          <p>Get updates on new releases, shows, and more groovy stuff</p>
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="newsletter-form">
+            <input type="email" name="email" placeholder="your@email.com" required />
+            <button type="submit" class="btn-vintage">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2024 Sunkissed. All rights reserved. ✌️</p>
+    </footer>
+  </body>
+</html>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --burnt-orange: #D97D40;
+    --sunset-yellow: #F4A850;
+    --deep-brown: #5C3D2E;
+    --warm-cream: #F9E4C8;
+    --rust-red: #B85C3A;
+    --olive-green: #8B7355;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Epilogue', sans-serif;
+    background-color: var(--warm-cream);
+    color: var(--deep-brown);
+    line-height: 1.7;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Style Switcher */
+  .style-switcher {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(92, 61, 46, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 12px 20px;
+    border-radius: 50px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .switcher-label {
+    color: var(--warm-cream);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-right: 5px;
+  }
+
+  .style-switcher a {
+    color: var(--warm-cream);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .style-switcher a:hover,
+  .style-switcher a.active {
+    background: var(--burnt-orange);
+    color: white;
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 40%, var(--sunset-yellow) 0%, var(--burnt-orange) 50%, var(--rust-red) 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .grain-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.5' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  .sun-rays {
+    position: absolute;
+    inset: -50%;
+    background: repeating-conic-gradient(
+      from 0deg at 50% 50%,
+      transparent 0deg 8deg,
+      rgba(255, 255, 255, 0.08) 8deg 10deg
+    );
+    animation: rotate-rays 40s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes rotate-rays {
+    to { transform: rotate(360deg); }
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 700px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo {
+    width: 280px;
+    height: auto;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+
+  .vintage-title {
+    font-family: 'Righteous', cursive;
+    font-size: 5rem;
+    color: white;
+    text-shadow: 4px 4px 0 var(--deep-brown), 6px 6px 15px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .tagline {
+    font-size: 1.5rem;
+    color: var(--warm-cream);
+    margin-bottom: 3rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-vintage, .btn-vintage-outline {
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .btn-vintage {
+    background: var(--deep-brown);
+    color: var(--warm-cream);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-vintage:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  .btn-vintage-outline {
+    background: transparent;
+    color: white;
+    border: 3px solid white;
+  }
+
+  .btn-vintage-outline:hover {
+    background: white;
+    color: var(--deep-brown);
+    transform: translateY(-3px);
+  }
+
+  /* About Section */
+  .about-section {
+    padding: 6rem 0;
+    background: var(--warm-cream);
+  }
+
+  .section-title {
+    font-family: 'Righteous', cursive;
+    font-size: 3.5rem;
+    color: var(--deep-brown);
+    text-align: center;
+    margin-bottom: 4rem;
+    text-shadow: 3px 3px 0 var(--sunset-yellow);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  .about-text p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--deep-brown);
+  }
+
+  .polaroid {
+    background: white;
+    padding: 20px 20px 60px 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    transform: rotate(-3deg);
+    transition: transform 0.3s ease;
+  }
+
+  .polaroid:hover {
+    transform: rotate(0deg) scale(1.02);
+  }
+
+  .polaroid img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .polaroid-caption {
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    color: var(--deep-brown);
+    font-size: 1.1rem;
+  }
+
+  .about-more {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .about-more p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--olive-green);
+  }
+
+  /* Music Section */
+  .music-section {
+    padding: 6rem 0;
+    background: linear-gradient(180deg, var(--burnt-orange) 0%, var(--rust-red) 100%);
+    position: relative;
+  }
+
+  .music-section .section-title {
+    color: white;
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .platform-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--deep-brown);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .platform-card:hover {
+    transform: translateY(-8px) rotate(2deg);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .platform-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1.5rem;
+    color: var(--burnt-orange);
+  }
+
+  .platform-name {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'Righteous', cursive;
+  }
+
+  /* Contact Section */
+  .contact-section {
+    padding: 6rem 0;
+    background: var(--warm-cream);
+  }
+
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+  }
+
+  .social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    text-decoration: none;
+    color: var(--deep-brown);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .social-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    background: var(--sunset-yellow);
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-link span {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  /* Newsletter */
+  .newsletter {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(135deg, var(--burnt-orange), var(--sunset-yellow));
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .newsletter h3 {
+    font-family: 'Righteous', cursive;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .newsletter p {
+    color: var(--warm-cream);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    min-width: 250px;
+    padding: 15px 20px;
+    border-radius: 50px;
+    border: none;
+    font-size: 1rem;
+    font-family: 'Epilogue', sans-serif;
+  }
+
+  .newsletter-form button {
+    padding: 15px 35px;
+    background: var(--deep-brown);
+    color: var(--warm-cream);
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .newsletter-form button:hover {
+    background: white;
+    color: var(--deep-brown);
+    transform: translateY(-2px);
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--deep-brown);
+    color: var(--warm-cream);
+    text-align: center;
+    padding: 2rem;
+    font-size: 1rem;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .style-switcher {
+      flex-wrap: wrap;
+      padding: 10px 15px;
+      gap: 8px;
+    }
+
+    .switcher-label {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .style-switcher a {
+      font-size: 0.75rem;
+      padding: 5px 10px;
+    }
+
+    .vintage-title {
+      font-size: 3rem;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+    }
+
+    .logo {
+      width: 200px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .polaroid {
+      transform: rotate(0deg);
+    }
+
+    .newsletter {
+      padding: 2rem 1.5rem;
+    }
+
+    .newsletter-form {
+      flex-direction: column;
+    }
+
+    .newsletter-form input,
+    .newsletter-form button {
+      width: 100%;
+    }
+  }
+</style>

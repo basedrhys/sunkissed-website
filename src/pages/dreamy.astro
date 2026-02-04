@@ -1,0 +1,815 @@
+---
+import { socialLinks, musicPlatforms } from '../data/socialLinks.js';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sunkissed - Indie Rock Band" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+    <title>Sunkissed - Dreamy</title>
+  </head>
+  <body>
+    <!-- Style Switcher -->
+    <nav class="style-switcher">
+      <span class="switcher-label">Explore:</span>
+      <a href="/vintage">70s Vintage</a>
+      <a href="/minimalist">Minimalist</a>
+      <a href="/dreamy" class="active">Dreamy</a>
+      <a href="/grunge">Grunge</a>
+      <a href="/">Original</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="gradient-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+      </div>
+      <div class="hero-content">
+        <div class="logo-glow">
+          <img src="/logo.png" alt="Sunkissed" class="logo" />
+        </div>
+        <h1 class="hero-title">Sunkissed</h1>
+        <p class="hero-subtitle">where memories drift like summer clouds</p>
+        <div class="hero-cta">
+          <a href="#music" class="btn-dreamy">
+            <span>Listen Now</span>
+            <div class="btn-glow"></div>
+          </a>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="floating-title">
+          <h2>Our Story</h2>
+          <div class="title-blur"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-image">
+            <div class="image-frame">
+              <img src="/cover_photo.jpeg" alt="Sunkissed Band" />
+              <div class="image-overlay"></div>
+            </div>
+          </div>
+
+          <div class="about-text">
+            <p class="emphasized">
+              sunkissed started as a move — not a band. Two friends packed up their lives in Toronto and landed in San Francisco.
+            </p>
+            <p>
+              It wasn't until six months later—after soaking in the Californian sun and feeling the late-night breeze—the music started flowing. What emerged was a hazy blend of indie rock, surf-tinged guitars, dreamy bedroom pop, and the occasional psychedelic drift.
+            </p>
+            <p>
+              Now a four-piece, sunkissed makes music that feels like sun-faded memories—nostalgic, a little restless, and entirely their own.
+            </p>
+          </div>
+        </div>
+
+        <div class="story-continuation">
+          <p>
+            Their debut single, <em>"On the Sun Kissed Hills of San Francisco,"</em> is a raw, honest reflection on leaving Toronto for San Francisco, capturing the emotions felt while living in a new city. The song emerged from a simple guitar riff during a moment of inspiration while watching sunlight pour across hills of San Franciscan houses.
+          </p>
+          <p>
+            Their newest single, <em>Echos</em>, is an energetic track that contrasts the tension between the joy of experiencing something new with the nostalgia of letting go of the past. The sound is dreamy, yet a little hazy, like a memory slowly fading away.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="music-section">
+      <div class="container">
+        <div class="floating-title">
+          <h2>Listen & Watch</h2>
+          <div class="title-blur"></div>
+        </div>
+
+        <div class="platforms-grid">
+          {musicPlatforms.map((platform, index) => (
+            <a
+              href={platform.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="platform-card"
+              style={`animation-delay: ${index * 0.1}s`}
+            >
+              <div class="platform-glow"></div>
+              <svg viewBox="0 0 24 24" class="platform-icon">
+                <path d={platform.icon} fill="currentColor" />
+              </svg>
+              <span class="platform-name">{platform.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="floating-title">
+          <h2>Stay Connected</h2>
+          <div class="title-blur"></div>
+        </div>
+
+        <div class="social-grid">
+          {socialLinks.map((link, index) => (
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-bubble"
+              style={`animation-delay: ${index * 0.1}s`}
+            >
+              <svg viewBox="0 0 24 24" class="social-icon">
+                <path d={link.icon} fill="currentColor" />
+              </svg>
+              <span>{link.name}</span>
+              <div class="bubble-glow"></div>
+            </a>
+          ))}
+        </div>
+
+        <div class="newsletter">
+          <h3>Join Our Newsletter</h3>
+          <p>Receive updates on new releases, shows, and exclusive content</p>
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="newsletter-form">
+            <div class="input-wrapper">
+              <input type="email" name="email" placeholder="your@email.com" required />
+              <div class="input-glow"></div>
+            </div>
+            <button type="submit" class="btn-dreamy">
+              <span>Subscribe</span>
+              <div class="btn-glow"></div>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2024 Sunkissed • Made with love</p>
+    </footer>
+  </body>
+</html>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --pastel-pink: #FFB3D9;
+    --pastel-purple: #C4A7E7;
+    --pastel-blue: #A8D8EA;
+    --pastel-peach: #FFCBA4;
+    --pastel-lavender: #E0BBE4;
+    --soft-white: #FEFEFE;
+    --soft-gray: #C8C8D8;
+    --text-primary: #5A5A7A;
+    --text-secondary: #8888A8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(180deg,
+      #FFF5FB 0%,
+      #F0F0FF 50%,
+      #FFF8F0 100%
+    );
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Style Switcher */
+  .style-switcher {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(200, 160, 230, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .switcher-label {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .style-switcher a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+  }
+
+  .style-switcher a:hover,
+  .style-switcher a.active {
+    background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-purple));
+    color: white;
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 2rem;
+  }
+
+  .gradient-orbs {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    animation: float-orb 20s ease-in-out infinite;
+  }
+
+  .orb-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--pastel-pink), transparent);
+    top: -200px;
+    left: -100px;
+  }
+
+  .orb-2 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--pastel-purple), transparent);
+    bottom: -250px;
+    right: -150px;
+    animation-delay: -5s;
+  }
+
+  .orb-3 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--pastel-blue), transparent);
+    top: 50%;
+    left: 50%;
+    animation-delay: -10s;
+  }
+
+  @keyframes float-orb {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(30px, -30px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+  }
+
+  .hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    animation: fade-in 1.5s ease-out;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .logo-glow {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+
+  .logo {
+    width: 220px;
+    height: auto;
+    filter: drop-shadow(0 0 40px rgba(255, 179, 217, 0.4));
+    animation: gentle-float 4s ease-in-out infinite;
+  }
+
+  @keyframes gentle-float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 400;
+    background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-purple), var(--pastel-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .btn-dreamy {
+    position: relative;
+    display: inline-block;
+    padding: 15px 45px;
+    background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-purple));
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 1.05rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .btn-dreamy:hover {
+    transform: translateY(-3px);
+  }
+
+  .btn-glow {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-purple));
+    border-radius: 50px;
+    filter: blur(15px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .btn-dreamy:hover .btn-glow {
+    opacity: 0.7;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    opacity: 0.6;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--pastel-purple), transparent);
+    animation: scroll-line 2s ease-in-out infinite;
+  }
+
+  @keyframes scroll-line {
+    0%, 100% {
+      opacity: 0.3;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(10px);
+    }
+  }
+
+  /* Section Styles */
+  section {
+    padding: 6rem 0;
+    position: relative;
+  }
+
+  .floating-title {
+    text-align: center;
+    margin-bottom: 5rem;
+    position: relative;
+  }
+
+  .floating-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    position: relative;
+  }
+
+  .title-blur {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle, rgba(255, 179, 217, 0.2), transparent);
+    filter: blur(30px);
+    z-index: -1;
+  }
+
+  /* About Section */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+
+  .image-frame {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(200, 160, 230, 0.3);
+  }
+
+  .image-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 179, 217, 0.2), rgba(196, 167, 231, 0.2));
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .image-frame:hover img {
+    transform: scale(1.05);
+  }
+
+  .image-frame:hover .image-overlay {
+    opacity: 1;
+  }
+
+  .about-text p {
+    font-size: 1.125rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+  }
+
+  .about-text .emphasized {
+    font-size: 1.35rem;
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+
+  .story-continuation {
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  .story-continuation p {
+    font-size: 1.125rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+  }
+
+  .story-continuation em {
+    color: var(--text-primary);
+    font-style: italic;
+  }
+
+  /* Music Section */
+  .music-section {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+  }
+
+  .platforms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .platform-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 3rem 2rem;
+    border-radius: 25px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.4s ease;
+    animation: fade-in-up 0.6s ease-out backwards;
+    overflow: hidden;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .platform-glow {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-purple));
+    border-radius: 25px;
+    opacity: 0;
+    filter: blur(20px);
+    transition: opacity 0.4s ease;
+    z-index: -1;
+  }
+
+  .platform-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(200, 160, 230, 0.4);
+  }
+
+  .platform-card:hover .platform-glow {
+    opacity: 0.5;
+  }
+
+  .platform-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1.5rem;
+    color: var(--pastel-purple);
+  }
+
+  .platform-name {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  /* Contact Section */
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto 5rem;
+  }
+
+  .social-bubble {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.4s ease;
+    animation: fade-in-up 0.6s ease-out backwards;
+    overflow: hidden;
+  }
+
+  .bubble-glow {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-lavender));
+    border-radius: 20px;
+    opacity: 0;
+    filter: blur(15px);
+    transition: opacity 0.4s ease;
+    z-index: -1;
+  }
+
+  .social-bubble:hover {
+    transform: translateY(-8px);
+  }
+
+  .social-bubble:hover .bubble-glow {
+    opacity: 0.5;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--pastel-purple);
+  }
+
+  .social-bubble span {
+    font-weight: 500;
+    font-size: 1rem;
+  }
+
+  /* Newsletter */
+  .newsletter {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(15px);
+    padding: 4rem 3rem;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 20px 60px rgba(200, 160, 230, 0.2);
+  }
+
+  .newsletter h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .newsletter p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .input-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .input-wrapper input {
+    width: 100%;
+    padding: 15px 25px;
+    border-radius: 50px;
+    border: 1px solid rgba(200, 200, 216, 0.3);
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+  }
+
+  .input-wrapper input:focus {
+    outline: none;
+    border-color: var(--pastel-purple);
+    background: white;
+  }
+
+  .input-glow {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-purple));
+    border-radius: 50px;
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .input-wrapper input:focus + .input-glow {
+    opacity: 0.3;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 3rem 0;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .style-switcher {
+      flex-wrap: wrap;
+      padding: 8px 12px;
+      gap: 8px;
+    }
+
+    .switcher-label {
+      width: 100%;
+      text-align: center;
+      font-size: 0.75rem;
+    }
+
+    .style-switcher a {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+    }
+
+    .logo {
+      width: 160px;
+    }
+
+    .floating-title h2 {
+      font-size: 2.5rem;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .about-text .emphasized {
+      font-size: 1.2rem;
+    }
+
+    .platforms-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .social-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .newsletter {
+      padding: 3rem 2rem;
+    }
+
+    .newsletter-form {
+      flex-direction: column;
+    }
+
+    .input-wrapper {
+      min-width: 100%;
+    }
+  }
+</style>

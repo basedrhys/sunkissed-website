@@ -9,6 +9,16 @@ import Contact from '../components/Contact.astro';
 ---
 
 <Layout title="Sunkissed - Indie Rock Band" description="Sunkissed is an indie rock band bringing warm melodies and heartfelt lyrics to audiences everywhere.">
+  <!-- Style Switcher -->
+  <nav class="style-switcher">
+    <span class="switcher-label">Try Different Styles:</span>
+    <a href="/vintage">70s Vintage</a>
+    <a href="/minimalist">Minimalist</a>
+    <a href="/dreamy">Dreamy</a>
+    <a href="/grunge">Grunge</a>
+    <a href="/" class="active">Original</a>
+  </nav>
+
   <Navigation />
   <SocialSidebar />
   <main>
@@ -18,3 +28,65 @@ import Contact from '../components/Contact.astro';
     <Contact />
   </main>
 </Layout>
+
+<style>
+  .style-switcher {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 12px 20px;
+    border-radius: 50px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(247, 147, 30, 0.2);
+  }
+
+  .switcher-label {
+    color: var(--color-gray);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-right: 5px;
+  }
+
+  .style-switcher a {
+    color: var(--color-charcoal);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+
+  .style-switcher a:hover,
+  .style-switcher a.active {
+    background: var(--color-sun-orange);
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .style-switcher {
+      flex-wrap: wrap;
+      padding: 10px 15px;
+      gap: 8px;
+    }
+
+    .switcher-label {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 5px;
+      font-size: 0.75rem;
+    }
+
+    .style-switcher a {
+      font-size: 0.75rem;
+      padding: 5px 10px;
+    }
+  }
+</style>
