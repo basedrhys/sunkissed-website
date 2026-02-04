@@ -11,12 +11,14 @@ import Contact from '../components/Contact.astro';
 <Layout title="Sunkissed - Indie Rock Band" description="Sunkissed is an indie rock band bringing warm melodies and heartfelt lyrics to audiences everywhere.">
   <!-- Style Switcher -->
   <nav class="style-switcher">
-    <span class="switcher-label">Try Different Styles:</span>
-    <a href="/vintage">70s Vintage</a>
-    <a href="/minimalist">Minimalist</a>
+    <span class="switcher-label">STYLE:</span>
+    <a href="/" class="active">Original</a>
+    <a href="/synthwave">Synthwave</a>
+    <a href="/zine">Zine</a>
+    <a href="/y2k">Y2K</a>
+    <a href="/vintage">Vintage</a>
     <a href="/dreamy">Dreamy</a>
     <a href="/grunge">Grunge</a>
-    <a href="/" class="active">Original</a>
   </nav>
 
   <Navigation />
@@ -42,7 +44,7 @@ import Contact from '../components/Contact.astro';
     display: flex;
     gap: 15px;
     align-items: center;
-    z-index: 1000;
+    z-index: 10000;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(247, 147, 30, 0.2);
   }

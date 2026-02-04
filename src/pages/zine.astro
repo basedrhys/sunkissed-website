@@ -1,0 +1,889 @@
+---
+import { socialLinks, musicPlatforms } from '../data/socialLinks.js';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sunkissed - Indie Rock Band" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Archivo+Narrow:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet" />
+    <title>Sunkissed - Zine</title>
+  </head>
+  <body>
+    <!-- Style Switcher -->
+    <nav class="style-switcher">
+      <span class="switcher-label">STYLE:</span>
+      <a href="/">Original</a>
+      <a href="/synthwave">Synthwave</a>
+      <a href="/zine" class="active">Zine</a>
+      <a href="/y2k">Y2K</a>
+      <a href="/vintage">Vintage</a>
+      <a href="/dreamy">Dreamy</a>
+      <a href="/grunge">Grunge</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="logo-torn">
+          <img src="/logo.png" alt="Sunkissed" class="logo" />
+          <div class="tape tape-1"></div>
+          <div class="tape tape-2"></div>
+        </div>
+
+        <div class="headline-stack">
+          <span class="headline-cutout">SUN</span>
+          <span class="headline-outline">KISSED</span>
+        </div>
+
+        <div class="stamp-container">
+          <span class="stamp">INDIE ROCK</span>
+          <span class="stamp stamp-alt">SAN FRANCISCO</span>
+        </div>
+
+        <div class="hero-cta">
+          <a href="#music" class="btn-zine">LISTEN NOW</a>
+          <a href="#about" class="btn-zine-alt">READ MORE</a>
+        </div>
+      </div>
+
+      <div class="torn-edge-bottom"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="section-marker">
+          <span class="marker-num">01</span>
+          <span class="marker-line"></span>
+        </div>
+
+        <div class="about-layout">
+          <div class="about-image-col">
+            <div class="collage-image">
+              <img src="/cover_photo.jpeg" alt="Sunkissed Band" />
+              <div class="tape tape-corner"></div>
+              <div class="image-caption">THE BAND, 2024</div>
+            </div>
+          </div>
+
+          <div class="about-text-col">
+            <h2 class="article-headline">THE STORY</h2>
+
+            <div class="article-body">
+              <p class="drop-cap">
+                Two friends packed up their lives in Toronto and landed in San Francisco. It wasn't until six months later—after soaking in the Californian sun and feeling the late-night breeze—the music started flowing.
+              </p>
+              <p>
+                What emerged was a hazy blend of indie rock, surf-tinged guitars, dreamy bedroom pop, and the occasional psychedelic drift. Now a four-piece, sunkissed makes music that feels like sun-faded memories—nostalgic, a little restless, and entirely their own.
+              </p>
+            </div>
+
+            <blockquote class="pull-quote">
+              <span class="quote-mark">"</span>
+              Music that feels like sun-faded memories
+              <span class="quote-mark">"</span>
+            </blockquote>
+
+            <div class="article-body">
+              <p>
+                Their debut single, <strong>"On the Sun Kissed Hills of San Francisco,"</strong> is a raw, honest reflection on leaving Toronto for San Francisco.
+              </p>
+              <p>
+                Their newest single, <strong>Echos</strong>, is an energetic track that contrasts the tension between the joy of experiencing something new with the nostalgia of letting go of the past.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="music-section">
+      <div class="torn-edge-top"></div>
+
+      <div class="container">
+        <div class="section-marker">
+          <span class="marker-num">02</span>
+          <span class="marker-line"></span>
+        </div>
+
+        <h2 class="section-headline">LISTEN</h2>
+
+        <div class="platform-index">
+          {musicPlatforms.map((platform, index) => (
+            <a
+              href={platform.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="index-item"
+            >
+              <span class="index-name">{platform.name}</span>
+              <span class="index-dots"></span>
+              <span class="index-page">{String(index + 1).padStart(2, '0')}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-marker">
+          <span class="marker-num">03</span>
+          <span class="marker-line"></span>
+        </div>
+
+        <h2 class="section-headline">CONNECT</h2>
+
+        <div class="contact-columns">
+          <div class="contact-col">
+            <h3 class="col-header">FOLLOW</h3>
+            <div class="social-stack">
+              {socialLinks.filter(l => ['Instagram', 'TikTok'].includes(l.name)).map((link) => (
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-item"
+                >
+                  {link.name}
+                  <span class="arrow">→</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="contact-col newsletter-col">
+            <h3 class="col-header">SUBSCRIBE</h3>
+            <p class="newsletter-text">
+              Get updates on new releases, shows, and exclusive content.
+            </p>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="newsletter-form">
+              <input type="email" name="email" placeholder="your@email.com" required />
+              <button type="submit" class="btn-zine">SUBSCRIBE</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="colophon">
+          <p class="colophon-text">
+            SUNKISSED ZINE — ISSUE NO. 1 — 2024
+          </p>
+          <p class="colophon-sub">
+            Printed in San Francisco, California
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --pure-black: #000000;
+    --pure-white: #FFFFFF;
+    --newsprint: #F5F0E6;
+    --ink-gray: #2D2D2D;
+    --accent-red: #FF0000;
+    --paper-tan: #E8DFD0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Archivo Narrow', sans-serif;
+    background-color: var(--newsprint);
+    color: var(--pure-black);
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Style Switcher */
+  .style-switcher {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--pure-white);
+    border: 3px solid var(--pure-black);
+    padding: 8px 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    z-index: 10000;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .switcher-label {
+    font-family: 'Special Elite', monospace;
+    color: var(--ink-gray);
+  }
+
+  .style-switcher a {
+    color: var(--ink-gray);
+    text-decoration: none;
+    padding: 4px 8px;
+    transition: all 0.2s ease;
+  }
+
+  .style-switcher a:hover,
+  .style-switcher a.active {
+    color: var(--accent-red);
+    background: var(--pure-black);
+    color: var(--pure-white);
+  }
+
+  .style-switcher a.active {
+    transform: rotate(-2deg);
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: var(--pure-white);
+    padding: 6rem 2rem 8rem;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-torn {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+    transform: rotate(-3deg);
+  }
+
+  .logo {
+    width: 180px;
+    height: auto;
+    border: 6px solid var(--pure-white);
+    box-shadow: 4px 4px 0 var(--pure-black);
+  }
+
+  .tape {
+    position: absolute;
+    width: 60px;
+    height: 24px;
+    background: rgba(255, 255, 200, 0.8);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .tape-1 {
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-5deg);
+  }
+
+  .tape-2 {
+    bottom: -12px;
+    right: -20px;
+    transform: rotate(15deg);
+  }
+
+  .headline-stack {
+    margin-bottom: 2rem;
+  }
+
+  .headline-cutout {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 12rem;
+    font-weight: 900;
+    line-height: 0.85;
+    background: var(--pure-black);
+    color: var(--newsprint);
+    padding: 0.05em 0.15em;
+    transform: rotate(-2deg);
+    display: inline-block;
+    box-shadow: 5px 5px 0 var(--ink-gray);
+  }
+
+  .headline-outline {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 12rem;
+    font-weight: 900;
+    line-height: 0.85;
+    color: transparent;
+    -webkit-text-stroke: 4px var(--pure-black);
+    text-stroke: 4px var(--pure-black);
+    margin-top: -0.1em;
+    margin-left: 1rem;
+  }
+
+  .stamp-container {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .stamp {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border: 3px solid var(--accent-red);
+    color: var(--accent-red);
+    padding: 8px 16px;
+    transform: rotate(-4deg);
+    display: inline-block;
+    position: relative;
+  }
+
+  .stamp::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px dashed var(--accent-red);
+  }
+
+  .stamp-alt {
+    transform: rotate(3deg);
+    border-color: var(--pure-black);
+    color: var(--pure-black);
+  }
+
+  .stamp-alt::before {
+    border-color: var(--pure-black);
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-zine,
+  .btn-zine-alt {
+    font-family: 'Special Elite', monospace;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 16px 32px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+
+  .btn-zine {
+    background: var(--pure-black);
+    color: var(--newsprint);
+    transform: rotate(1deg);
+  }
+
+  .btn-zine:hover {
+    transform: rotate(-1deg) scale(1.05);
+    background: var(--accent-red);
+  }
+
+  .btn-zine-alt {
+    background: transparent;
+    color: var(--pure-black);
+    border: 3px solid var(--pure-black);
+    transform: rotate(-1deg);
+  }
+
+  .btn-zine-alt:hover {
+    background: var(--pure-black);
+    color: var(--newsprint);
+    transform: rotate(1deg) scale(1.05);
+  }
+
+  .torn-edge-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: var(--newsprint);
+    clip-path: polygon(
+      0 100%, 0 70%, 2% 40%, 4% 80%, 6% 30%, 8% 60%, 10% 20%, 12% 70%,
+      14% 40%, 16% 90%, 18% 50%, 20% 20%, 22% 60%, 24% 40%, 26% 80%,
+      28% 30%, 30% 70%, 32% 50%, 34% 90%, 36% 40%, 38% 20%, 40% 60%,
+      42% 80%, 44% 30%, 46% 70%, 48% 50%, 50% 100%, 52% 40%, 54% 80%,
+      56% 20%, 58% 60%, 60% 90%, 62% 40%, 64% 70%, 66% 30%, 68% 80%,
+      70% 50%, 72% 20%, 74% 60%, 76% 90%, 78% 40%, 80% 70%, 82% 30%,
+      84% 80%, 86% 50%, 88% 20%, 90% 60%, 92% 90%, 94% 40%, 96% 70%,
+      98% 30%, 100% 60%, 100% 100%
+    );
+  }
+
+  .torn-edge-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: var(--newsprint);
+    clip-path: polygon(
+      0 0, 0 30%, 2% 60%, 4% 20%, 6% 70%, 8% 40%, 10% 80%, 12% 30%,
+      14% 60%, 16% 10%, 18% 50%, 20% 80%, 22% 40%, 24% 60%, 26% 20%,
+      28% 70%, 30% 30%, 32% 50%, 34% 10%, 36% 60%, 38% 80%, 40% 40%,
+      42% 20%, 44% 70%, 46% 30%, 48% 50%, 50% 0, 52% 60%, 54% 20%,
+      56% 80%, 58% 40%, 60% 10%, 62% 60%, 64% 30%, 66% 70%, 68% 20%,
+      70% 50%, 72% 80%, 74% 40%, 76% 10%, 78% 60%, 80% 30%, 82% 70%,
+      84% 20%, 86% 50%, 88% 80%, 90% 40%, 92% 10%, 94% 60%, 96% 30%,
+      98% 70%, 100% 40%, 100% 0
+    );
+  }
+
+  /* Section Styles */
+  section {
+    padding: 5rem 0;
+    position: relative;
+  }
+
+  .section-marker {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .marker-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--accent-red);
+  }
+
+  .marker-line {
+    flex: 1;
+    height: 3px;
+    background: var(--pure-black);
+  }
+
+  /* About Section */
+  .about-section {
+    background: var(--newsprint);
+  }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .collage-image {
+    position: relative;
+    transform: rotate(-3deg);
+    border: 8px solid var(--pure-white);
+    box-shadow: 6px 6px 0 var(--pure-black);
+  }
+
+  .collage-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: grayscale(20%) contrast(110%);
+  }
+
+  .collage-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.02) 2px,
+      rgba(0, 0, 0, 0.02) 4px
+    );
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+
+  .tape-corner {
+    top: -12px;
+    right: -12px;
+    transform: rotate(45deg);
+    width: 70px;
+  }
+
+  .image-caption {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Special Elite', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--ink-gray);
+    white-space: nowrap;
+  }
+
+  .article-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .article-headline::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: var(--accent-red);
+  }
+
+  .article-body {
+    column-count: 1;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: justify;
+  }
+
+  .article-body p {
+    margin-bottom: 1.5rem;
+  }
+
+  .drop-cap::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 900;
+    float: left;
+    line-height: 0.8;
+    margin-right: 0.5rem;
+    margin-top: 0.1em;
+    color: var(--accent-red);
+  }
+
+  .article-body strong {
+    font-weight: 700;
+  }
+
+  .pull-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: italic;
+    text-align: center;
+    margin: 2.5rem 0;
+    padding: 1.5rem 0;
+    border-top: 2px solid var(--pure-black);
+    border-bottom: 2px solid var(--pure-black);
+    position: relative;
+  }
+
+  .quote-mark {
+    font-size: 4rem;
+    line-height: 0;
+    vertical-align: middle;
+    color: var(--accent-red);
+  }
+
+  /* Music Section */
+  .music-section {
+    background: var(--pure-black);
+    color: var(--newsprint);
+    padding-top: 6rem;
+  }
+
+  .music-section .marker-num {
+    color: var(--newsprint);
+  }
+
+  .music-section .marker-line {
+    background: var(--newsprint);
+  }
+
+  .section-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 4rem;
+    letter-spacing: 0.2em;
+  }
+
+  .platform-index {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .index-item {
+    display: flex;
+    align-items: baseline;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(245, 240, 230, 0.2);
+    text-decoration: none;
+    color: var(--newsprint);
+    transition: all 0.3s ease;
+  }
+
+  .index-item:hover {
+    color: var(--accent-red);
+    padding-left: 1rem;
+  }
+
+  .index-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  .index-dots {
+    flex: 1;
+    border-bottom: 2px dotted currentColor;
+    margin: 0 1rem;
+    opacity: 0.5;
+  }
+
+  .index-page {
+    font-family: 'Special Elite', monospace;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+
+  /* Contact Section */
+  .contact-section {
+    background: var(--newsprint);
+  }
+
+  .section-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+  }
+
+  .contact-columns {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+  }
+
+  .col-header {
+    font-family: 'Special Elite', monospace;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--pure-black);
+  }
+
+  .social-stack {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .social-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--ink-gray);
+    text-decoration: none;
+    color: var(--pure-black);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+  }
+
+  .social-item:hover {
+    color: var(--accent-red);
+    padding-left: 0.5rem;
+  }
+
+  .arrow {
+    font-size: 1.5rem;
+    transition: transform 0.2s ease;
+  }
+
+  .social-item:hover .arrow {
+    transform: translateX(5px);
+  }
+
+  .newsletter-col {
+    background: var(--pure-white);
+    padding: 2.5rem;
+    border: 3px solid var(--pure-black);
+    box-shadow: 6px 6px 0 var(--pure-black);
+  }
+
+  .newsletter-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    color: var(--ink-gray);
+  }
+
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .newsletter-form input {
+    padding: 14px 16px;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 1rem;
+    border: 2px solid var(--pure-black);
+    background: var(--newsprint);
+  }
+
+  .newsletter-form input:focus {
+    outline: none;
+    border-color: var(--accent-red);
+  }
+
+  .newsletter-form input::placeholder {
+    color: var(--ink-gray);
+    opacity: 0.6;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 4rem 0;
+    background: var(--pure-white);
+    border-top: 3px solid var(--pure-black);
+  }
+
+  .colophon {
+    text-align: center;
+  }
+
+  .colophon-text {
+    font-family: 'Special Elite', monospace;
+    font-size: 1rem;
+    letter-spacing: 4px;
+    margin-bottom: 0.5rem;
+  }
+
+  .colophon-sub {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--ink-gray);
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .style-switcher {
+      flex-wrap: wrap;
+      padding: 8px 12px;
+      gap: 8px;
+      font-size: 0.65rem;
+      max-width: 95%;
+    }
+
+    .switcher-label {
+      width: 100%;
+      text-align: center;
+    }
+
+    .headline-cutout,
+    .headline-outline {
+      font-size: 5rem;
+    }
+
+    .headline-cutout {
+      padding: 0.1em 0.2em;
+    }
+
+    .logo {
+      width: 140px;
+    }
+
+    .article-headline {
+      font-size: 2.5rem;
+    }
+
+    .section-headline {
+      font-size: 3rem;
+    }
+
+    .about-layout {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .collage-image {
+      max-width: 300px;
+      margin: 0 auto 2rem;
+    }
+
+    .contact-columns {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .pull-quote {
+      font-size: 1.5rem;
+    }
+
+    .marker-num {
+      font-size: 3rem;
+    }
+
+    .hero-cta {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stamp-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .index-name {
+      font-size: 1.4rem;
+    }
+  }
+</style>
