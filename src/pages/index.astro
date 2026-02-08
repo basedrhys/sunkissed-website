@@ -73,39 +73,14 @@ import { socialLinks } from '../data/socialLinks.js';
           </div>
         </div>
 
-        <div class="contact-grid">
-          <div class="social-panel">
-            <h3 class="panel-title">★ FOLLOW US ★</h3>
-            <div class="social-stack">
-              {socialLinks.filter(l => ['Instagram', 'TikTok'].includes(l.name)).map((link) => (
-                <a
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="social-link"
-                >
-                  <svg viewBox="0 0 24 24" class="social-icon">
-                    <path d={link.icon} fill="currentColor" />
-                  </svg>
-                  <span>{link.name.toUpperCase()}</span>
-                </a>
-              ))}
-            </div>
-            <div class="email-contact">
-              <p><strong>Email:</strong> <a href="mailto:hello@sunkissedband.com">hello@sunkissedband.com</a></p>
-            </div>
-          </div>
-
-          <div class="newsletter-panel">
-            <h3 class="panel-title">★ NEWSLETTER ★</h3>
-            <p class="newsletter-desc">
-              Sign up for our newsletter to get the latest news, releases, and tour announcements.
-            </p>
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="newsletter-form">
-              <input type="email" name="email" placeholder="YOUR EMAIL" required />
-              <button type="submit" class="btn-vintage"><span>SUBSCRIBE</span></button>
-            </form>
-          </div>
+        <div class="newsletter-panel">
+          <p class="newsletter-desc">
+            Sign up for our newsletter to get the latest news, releases, and tour announcements.
+          </p>
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="newsletter-form">
+            <input type="email" name="email" placeholder="YOUR EMAIL" required />
+            <button type="submit" class="btn-vintage"><span>SUBSCRIBE</span></button>
+          </form>
         </div>
       </div>
     </section>
@@ -684,6 +659,12 @@ import { socialLinks } from '../data/socialLinks.js';
   }
 
   .newsletter-panel {
+    max-width: 700px;
+    width: 70%;
+    margin: 0 auto;
+    border: 4px solid var(--burnt-umber);
+    padding: 2.5rem;
+    background: var(--cream-paper);
     box-shadow: 8px 8px 0 var(--acid-yellow);
   }
 
