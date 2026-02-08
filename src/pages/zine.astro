@@ -15,18 +15,6 @@ import { socialLinks, musicPlatforms } from '../data/socialLinks.js';
     <title>Sunkissed - Zine</title>
   </head>
   <body>
-    <!-- Style Switcher -->
-    <nav class="style-switcher">
-      <span class="switcher-label">STYLE:</span>
-      <a href="/">Original</a>
-      <a href="/synthwave">Synthwave</a>
-      <a href="/zine" class="active">Zine</a>
-      <a href="/y2k">Y2K</a>
-      <a href="/vintage">Vintage</a>
-      <a href="/dreamy">Dreamy</a>
-      <a href="/grunge">Grunge</a>
-    </nav>
-
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
@@ -220,48 +208,6 @@ import { socialLinks, musicPlatforms } from '../data/socialLinks.js';
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 2rem;
-  }
-
-  /* Style Switcher */
-  .style-switcher {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--pure-white);
-    border: 3px solid var(--pure-black);
-    padding: 8px 16px;
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    z-index: 10000;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .switcher-label {
-    font-family: 'Special Elite', monospace;
-    color: var(--ink-gray);
-  }
-
-  .style-switcher a {
-    color: var(--ink-gray);
-    text-decoration: none;
-    padding: 4px 8px;
-    transition: all 0.2s ease;
-  }
-
-  .style-switcher a:hover,
-  .style-switcher a.active {
-    color: var(--accent-red);
-    background: var(--pure-black);
-    color: var(--pure-white);
-  }
-
-  .style-switcher a.active {
-    transform: rotate(-2deg);
   }
 
   /* Hero Section */
@@ -815,19 +761,6 @@ import { socialLinks, musicPlatforms } from '../data/socialLinks.js';
 
   /* Mobile Responsive */
   @media (max-width: 768px) {
-    .style-switcher {
-      flex-wrap: wrap;
-      padding: 8px 12px;
-      gap: 8px;
-      font-size: 0.65rem;
-      max-width: 95%;
-    }
-
-    .switcher-label {
-      width: 100%;
-      text-align: center;
-    }
-
     .headline-cutout,
     .headline-outline {
       font-size: 5rem;
