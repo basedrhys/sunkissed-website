@@ -27,6 +27,8 @@ npm run preview
 npm run astro
 ```
 
+**Note:** The dev server is typically already running. Do not start it automatically.
+
 ## Architecture
 
 ### Page Structure
