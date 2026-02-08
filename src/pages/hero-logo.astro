@@ -27,14 +27,6 @@ import { socialLinks, musicPlatforms } from '../data/socialLinks.js';
       </div>
 
       <div class="hero-content">
-        <h1 class="hero-title">
-          <span class="title-main">SUNKISSED</span>
-        </h1>
-
-        <p class="hero-tagline">
-          ★ INDIE ROCK FROM SAN FRANCISCO ★
-        </p>
-
         <div class="hero-cta">
           <a href="#music" class="btn-vintage"><span>LISTEN NOW</span></a>
           <a href="#about" class="btn-vintage-outline"><span>OUR STORY</span></a>
@@ -248,7 +240,7 @@ import { socialLinks, musicPlatforms } from '../data/socialLinks.js';
     align-items: center;
     justify-content: center;
     position: relative;
-    background: linear-gradient(180deg, var(--cream-paper) 0%, #FFE4C4 100%);
+    background: linear-gradient(180deg, #FFF0DC 0%, #FFDAB3 100%);
     padding: 4rem 2rem;
     overflow: hidden;
   }
@@ -273,27 +265,27 @@ import { socialLinks, musicPlatforms } from '../data/socialLinks.js';
     z-index: 2;
   }
 
-  /* Animated Sun Effect around the logo */
+  /* Animated Sun Effect around the logo - black and red concentric circles */
   .logo-sun-effect {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 120%;
-    height: 120%;
+    width: 130%;
+    height: 130%;
     background: repeating-radial-gradient(
       circle at center,
-      var(--psychedelic-orange) 0px,
-      var(--psychedelic-orange) 40px,
-      var(--acid-yellow) 40px,
-      var(--acid-yellow) 80px,
-      var(--hot-coral) 80px,
-      var(--hot-coral) 120px,
-      var(--electric-purple) 120px,
-      var(--electric-purple) 160px
+      var(--burnt-umber) 0px,
+      var(--burnt-umber) 30px,
+      var(--hot-coral) 30px,
+      var(--hot-coral) 60px,
+      var(--burnt-umber) 60px,
+      var(--burnt-umber) 90px,
+      var(--psychedelic-orange) 90px,
+      var(--psychedelic-orange) 120px
     );
     border-radius: 50%;
-    opacity: 0.4;
+    opacity: 0.35;
     animation: logo-sun-pulse 8s ease-in-out infinite;
     z-index: 1;
   }
@@ -305,40 +297,11 @@ import { socialLinks, musicPlatforms } from '../data/socialLinks.js';
 
   .hero-content {
     text-align: center;
-    position: relative;
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 10;
-  }
-
-  .hero-title {
-    margin-bottom: 1.5rem;
-  }
-
-  .title-main {
-    font-family: 'Anton', sans-serif;
-    font-size: 10rem;
-    line-height: 0.9;
-    letter-spacing: 0.02em;
-    color: var(--acid-yellow);
-    -webkit-text-stroke: 6px var(--burnt-umber);
-    paint-order: stroke fill;
-    text-shadow:
-      8px 8px 0 var(--psychedelic-orange),
-      16px 16px 0 var(--electric-purple);
-    display: block;
-  }
-
-  .hero-tagline {
-    font-family: 'Dela Gothic One', sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 6px;
-    color: var(--burnt-umber);
-    margin-bottom: 3rem;
-    animation: text-melt 6s ease-in-out infinite;
-  }
-
-  @keyframes text-melt {
-    0%, 100% { letter-spacing: 6px; transform: scaleY(1); }
-    50% { letter-spacing: 10px; transform: scaleY(1.05); }
   }
 
   .hero-cta {
