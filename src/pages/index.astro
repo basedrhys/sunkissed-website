@@ -1,5 +1,9 @@
 ---
 import { getVisibleLinksByCategory } from '../data/socialLinks.js';
+import PressBar from '../components/PressBar.astro';
+import MusicShowcase from '../components/MusicShowcase.astro';
+import VideoSection from '../components/VideoSection.astro';
+import Shows from '../components/Shows.astro';
 
 const linksByCategory = getVisibleLinksByCategory();
 ---
@@ -56,34 +60,27 @@ const linksByCategory = getVisibleLinksByCategory();
       </a>
 
       <!-- Scroll Down Indicator -->
-      <a href="#about" class="scroll-indicator" id="scroll-indicator" aria-label="Scroll down">
+      <a href="#music" class="scroll-indicator" id="scroll-indicator" aria-label="Scroll down">
         <svg viewBox="0 0 24 24" width="32" height="32">
           <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
     </section>
 
-    <!-- Video Section -->
-    <section id="about" class="about-section">
-      <div class="container">
-        <h3 class="video-title">Latest Video</h3>
+    <!-- Press Bar -->
+    <PressBar />
 
-        <div class="video-section">
-          <div class="video-container">
-            <iframe
-              src="https://www.youtube.com/embed/zNSEwreNbI0"
-              title="On the Sun Kissed Hills of San Francisco"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Music -->
+    <MusicShowcase />
+
+    <!-- Video -->
+    <VideoSection />
+
+    <!-- Shows -->
+    <Shows />
 
     <!-- Social Bar -->
-    <section id="music" class="social-bar-section">
+    <section class="social-bar-section">
       <div class="est-badge">Est. 2024</div>
       <div class="container">
         <div class="social-bar">
