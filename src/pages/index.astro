@@ -20,9 +20,47 @@ const linksByCategory = getVisibleLinksByCategory();
     <!-- Halftone Overlay -->
     <div class="halftone-overlay"></div>
 
+    <!-- Navigation -->
+    <nav class="site-nav" id="site-nav">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">sunkissed</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="#music">Music</a>
+          <a href="#video">Video</a>
+          <a href="#shows">Shows</a>
+          <a href="#contact">Connect</a>
+        </div>
+      </div>
+    </nav>
+
     <!-- Hero Section with Photo Background -->
     <section class="hero">
       <div class="hero-bg"></div>
+
+      <!-- Hero CTA -->
+      <a
+        href="https://open.spotify.com/artist/2HpxxPc77ouRakjIwTfAie"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hero-cta-btn"
+      >
+        <svg viewBox="0 0 24 24" class="hero-cta-icon" aria-hidden="true">
+          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" fill="currentColor"/>
+        </svg>
+        <span>LISTEN ON SPOTIFY</span>
+      </a>
+
+      <!-- Scroll Down Indicator -->
+      <a href="#about" class="scroll-indicator" id="scroll-indicator" aria-label="Scroll down">
+        <svg viewBox="0 0 24 24" width="32" height="32">
+          <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
     </section>
 
     <!-- Video Section -->
@@ -766,6 +804,175 @@ const linksByCategory = getVisibleLinksByCategory();
     color: var(--acid-yellow);
   }
 
+  /* Navigation */
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    padding: 1.2rem 0;
+    transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .site-nav.scrolled {
+    background: var(--burnt-umber);
+    padding: 0.8rem 0;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    color: var(--cream-paper);
+    text-decoration: none;
+    text-transform: lowercase;
+    transition: color 0.3s ease;
+  }
+
+  .nav-logo:hover {
+    color: var(--acid-yellow);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-family: 'Anton', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    color: var(--cream-paper);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--acid-yellow);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--acid-yellow);
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 10001;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: var(--cream-paper);
+    transition: all 0.3s ease;
+  }
+
+  .nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Hero CTA Button */
+  .hero-cta-btn {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 40px;
+    background: var(--acid-yellow);
+    color: var(--burnt-umber);
+    border: 4px solid var(--burnt-umber);
+    box-shadow:
+      6px 6px 0 var(--psychedelic-orange),
+      12px 12px 0 var(--hot-coral);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .hero-cta-btn:hover {
+    transform: translateX(-50%) translate(-4px, -4px);
+    box-shadow:
+      10px 10px 0 var(--psychedelic-orange),
+      20px 20px 0 var(--hot-coral);
+  }
+
+  .hero-cta-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    color: var(--cream-paper);
+    opacity: 0.8;
+    animation: bounce 2s ease-in-out infinite;
+    transition: opacity 0.4s ease;
+    text-decoration: none;
+  }
+
+  .scroll-indicator.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+  }
+
   /* Reduced Motion */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -776,6 +983,43 @@ const linksByCategory = getVisibleLinksByCategory();
 
   /* Mobile Responsive */
   @media (max-width: 768px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      max-width: 300px;
+      height: 100vh;
+      background: var(--burnt-umber);
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+      transition: right 0.3s ease;
+    }
+
+    .nav-links.open {
+      right: 0;
+    }
+
+    .nav-links a {
+      font-size: 1.3rem;
+    }
+
+    .hero-cta-btn {
+      font-size: 1rem;
+      padding: 14px 28px;
+      letter-spacing: 2px;
+      bottom: 18%;
+      box-shadow:
+        4px 4px 0 var(--psychedelic-orange),
+        8px 8px 0 var(--hot-coral);
+    }
+
     .hero {
       min-height: auto;
       aspect-ratio: 4/3;
@@ -855,3 +1099,49 @@ const linksByCategory = getVisibleLinksByCategory();
     }
   }
 </style>
+
+<script>
+  // Nav scroll behavior
+  const nav = document.getElementById('site-nav');
+  const scrollIndicator = document.getElementById('scroll-indicator');
+  const hero = document.querySelector('.hero');
+
+  function onScroll() {
+    const scrollY = window.scrollY;
+    const heroHeight = hero?.offsetHeight || window.innerHeight;
+
+    // Add solid background after scrolling past hero
+    if (scrollY > 80) {
+      nav?.classList.add('scrolled');
+    } else {
+      nav?.classList.remove('scrolled');
+    }
+
+    // Fade out scroll indicator
+    if (scrollY > heroHeight * 0.15) {
+      scrollIndicator?.classList.add('hidden');
+    } else {
+      scrollIndicator?.classList.remove('hidden');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile hamburger toggle
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+
+  toggle?.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    links?.classList.toggle('open');
+  });
+
+  // Close mobile menu on link click
+  links?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle?.classList.remove('active');
+      links?.classList.remove('open');
+    });
+  });
+</script>
