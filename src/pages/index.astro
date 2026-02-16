@@ -1,5 +1,7 @@
 ---
-import { socialLinks } from '../data/socialLinks.js';
+import { getVisibleLinksByCategory } from '../data/socialLinks.js';
+
+const linksByCategory = getVisibleLinksByCategory();
 ---
 
 <!doctype html>
@@ -7,12 +9,12 @@ import { socialLinks } from '../data/socialLinks.js';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sunkissed - Indie Rock Band from San Francisco" />
+    <meta name="description" content="sunkissed - Indie Rock Band from San Francisco" />
     <link rel="icon" type="image/png" href="/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dela+Gothic+One&family=Josefin+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-    <title>Sunkissed</title>
+    <title>sunkissed</title>
   </head>
   <body>
     <!-- Halftone Overlay -->
@@ -47,15 +49,46 @@ import { socialLinks } from '../data/socialLinks.js';
       <div class="est-badge">Est. 2024</div>
       <div class="container">
         <div class="social-bar">
-          {socialLinks.map((link) => (
+          {linksByCategory.music.map((link) => (
             <a
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
               class="social-bar-link"
               aria-label={link.ariaLabel}
+              title={link.name}
             >
               <svg viewBox="0 0 24 24" class="social-bar-icon">
+                <path d={link.icon} fill="currentColor" />
+              </svg>
+            </a>
+          ))}
+          <span class="social-bar-separator">|</span>
+          {linksByCategory.social.map((link) => (
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-bar-link"
+              aria-label={link.ariaLabel}
+              title={link.name}
+            >
+              <svg viewBox="0 0 24 24" class="social-bar-icon">
+                <path d={link.icon} fill="currentColor" />
+              </svg>
+            </a>
+          ))}
+          <span class="social-bar-separator">|</span>
+          {linksByCategory.events.map((link) => (
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-bar-link"
+              aria-label={link.ariaLabel}
+              title={link.name}
+            >
+              <svg viewBox="0 0 24 24" class="social-bar-icon" style={link.scale ? `transform: scale(${link.scale})` : ''}>
                 <path d={link.icon} fill="currentColor" />
               </svg>
             </a>
@@ -75,7 +108,7 @@ import { socialLinks } from '../data/socialLinks.js';
 
         <div class="newsletter-panel">
           <p class="newsletter-desc">
-            Sign up for our newsletter to get the latest news, releases, and tour announcements.
+            Sign up for updates on releases, and tour announcements.
           </p>
           <form name="newsletter" method="POST" data-netlify="true" class="newsletter-form">
             <input type="email" name="email" placeholder="YOUR EMAIL" required />
@@ -384,6 +417,14 @@ import { socialLinks } from '../data/socialLinks.js';
   .social-bar-icon {
     width: 32px;
     height: 32px;
+  }
+
+  .social-bar-separator {
+    color: var(--cream-paper);
+    opacity: 0.4;
+    font-size: 1.5rem;
+    font-weight: 300;
+    user-select: none;
   }
 
   .about-layout {
