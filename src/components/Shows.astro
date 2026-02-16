@@ -1,0 +1,156 @@
+---
+---
+
+<section id="shows" class="shows-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">SHOWS</h2>
+    </div>
+
+    <div class="shows-content">
+      <div class="bandsintown-widget">
+        <a class="bit-widget-initializer"
+          data-artist-name="sunkissed"
+          data-display-local-dates="false"
+          data-display-past-dates="false"
+          data-auto-style="false"
+          data-text-color="#3D0C02"
+          data-link-color="#FF5500"
+          data-background-color="rgba(0,0,0,0)"
+          data-display-limit="10"
+          data-link-text-color="#FFF5E6"
+          data-display-lineup="false"
+          data-display-play-my-city="true"
+          data-separator-color="rgba(61,12,2,0.2)"
+        ></a>
+      </div>
+
+      <div class="venues-past">
+        <span class="venues-label">PAST VENUES</span>
+        <div class="venues-list">
+          <span>Brick & Mortar Music Hall</span>
+          <span class="venue-dot">&middot;</span>
+          <span>Bottom of the Hill</span>
+          <span class="venue-dot">&middot;</span>
+          <span>SF State</span>
+          <span class="venue-dot">&middot;</span>
+          <span>KSFS Radio</span>
+        </div>
+      </div>
+
+      <div class="booking-info">
+        <p>For booking inquiries:</p>
+        <a href="mailto:sunkissed.hills@gmail.com">sunkissed.hills@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://widgetv3.bandsintown.com/main.min.js" charset="utf-8"></script>
+
+<style>
+  .shows-section {
+    background: var(--cream-paper);
+    padding: 5rem 0;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 5rem;
+    letter-spacing: 0.05em;
+    color: var(--burnt-umber);
+    text-shadow: 4px 4px 0 var(--acid-yellow);
+  }
+
+  .shows-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .bandsintown-widget {
+    margin-bottom: 3rem;
+    min-height: 100px;
+  }
+
+  .venues-past {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 3px dashed var(--burnt-umber);
+  }
+
+  .venues-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--burnt-umber);
+    opacity: 0.5;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .venues-list {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: var(--burnt-umber);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .venue-dot {
+    color: var(--psychedelic-orange);
+    font-size: 1.3rem;
+  }
+
+  .booking-info {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 3px dashed var(--burnt-umber);
+  }
+
+  .booking-info p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--burnt-umber);
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+  }
+
+  .booking-info a {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: var(--psychedelic-orange);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .booking-info a:hover {
+    color: var(--electric-purple);
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 3rem;
+    }
+
+    .venues-list {
+      font-size: 0.95rem;
+    }
+  }
+</style>
