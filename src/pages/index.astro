@@ -45,6 +45,7 @@ const linksByCategory = getVisibleLinksByCategory();
     <!-- Hero Section with Photo Background -->
     <section class="hero">
       <div class="hero-bg"></div>
+      <div class="hero-gradient-top"></div>
 
       <!-- Hero CTA -->
       <a
@@ -61,8 +62,8 @@ const linksByCategory = getVisibleLinksByCategory();
 
       <!-- Scroll Down Indicator -->
       <a href="#music" class="scroll-indicator" id="scroll-indicator" aria-label="Scroll down">
-        <svg viewBox="0 0 24 24" width="32" height="32">
-          <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg viewBox="0 0 24 24" width="40" height="40">
+          <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
     </section>
@@ -78,59 +79,6 @@ const linksByCategory = getVisibleLinksByCategory();
 
     <!-- Shows -->
     <Shows />
-
-    <!-- Social Bar -->
-    <section class="social-bar-section">
-      <div class="est-badge">Est. 2024</div>
-      <div class="container">
-        <div class="social-bar">
-          {linksByCategory.music.map((link) => (
-            <a
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="social-bar-link"
-              aria-label={link.ariaLabel}
-              title={link.name}
-            >
-              <svg viewBox="0 0 24 24" class="social-bar-icon">
-                <path d={link.icon} fill="currentColor" />
-              </svg>
-            </a>
-          ))}
-          <span class="social-bar-separator">|</span>
-          {linksByCategory.social.map((link) => (
-            <a
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="social-bar-link"
-              aria-label={link.ariaLabel}
-              title={link.name}
-            >
-              <svg viewBox="0 0 24 24" class="social-bar-icon">
-                <path d={link.icon} fill="currentColor" />
-              </svg>
-            </a>
-          ))}
-          <span class="social-bar-separator">|</span>
-          {linksByCategory.events.map((link) => (
-            <a
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="social-bar-link"
-              aria-label={link.ariaLabel}
-              title={link.name}
-            >
-              <svg viewBox="0 0 24 24" class="social-bar-icon" style={link.scale ? `transform: scale(${link.scale})` : ''}>
-                <path d={link.icon} fill="currentColor" />
-              </svg>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
@@ -155,6 +103,22 @@ const linksByCategory = getVisibleLinksByCategory();
 
     <footer class="footer">
       <div class="container">
+        <div class="footer-social">
+          {[...linksByCategory.social, ...linksByCategory.events].map((link) => (
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-social-link"
+              aria-label={link.ariaLabel}
+              title={link.name}
+            >
+              <svg viewBox="0 0 24 24" class="footer-social-icon" style={link.scale ? `transform: scale(${link.scale})` : ''}>
+                <path d={link.icon} fill="currentColor" />
+              </svg>
+            </a>
+          ))}
+        </div>
         <div class="footer-content">
           <p class="copyright">© 2024 SUNKISSED</p>
           <p class="footer-tag">☮ PEACE & MUSIC ☮</p>
@@ -233,6 +197,17 @@ const linksByCategory = getVisibleLinksByCategory();
     background-size: cover;
     background-position: center;
     z-index: 0;
+  }
+
+  .hero-gradient-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 140px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
   }
 
   .hero-overlay {
@@ -797,6 +772,31 @@ const linksByCategory = getVisibleLinksByCategory();
     color: var(--cream-paper);
   }
 
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 1.8rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-social-link {
+    color: var(--cream-paper);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+  }
+
+  .footer-social-link:hover {
+    color: var(--acid-yellow);
+    opacity: 1;
+    transform: scale(1.15);
+  }
+
+  .footer-social-icon {
+    width: 24px;
+    height: 24px;
+  }
+
   .footer-tag {
     color: var(--acid-yellow);
   }
@@ -834,7 +834,12 @@ const linksByCategory = getVisibleLinksByCategory();
     color: var(--cream-paper);
     text-decoration: none;
     text-transform: lowercase;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  }
+
+  .site-nav.scrolled .nav-logo {
+    text-shadow: none;
   }
 
   .nav-logo:hover {
@@ -854,8 +859,13 @@ const linksByCategory = getVisibleLinksByCategory();
     color: var(--cream-paper);
     text-decoration: none;
     text-transform: uppercase;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
     position: relative;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  }
+
+  .site-nav.scrolled .nav-links a {
+    text-shadow: none;
   }
 
   .nav-links a::after {
@@ -949,15 +959,16 @@ const linksByCategory = getVisibleLinksByCategory();
   /* Scroll Indicator */
   .scroll-indicator {
     position: absolute;
-    bottom: 2rem;
+    bottom: 1.5rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
     color: var(--cream-paper);
-    opacity: 0.8;
+    opacity: 0.9;
     animation: bounce 2s ease-in-out infinite;
     transition: opacity 0.4s ease;
     text-decoration: none;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
   }
 
   .scroll-indicator.hidden {
