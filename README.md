@@ -1,5 +1,7 @@
 # Sunkissed Band Website
 
+**Live site:** [sunkissed.band](https://sunkissed.band)
+
 A modern, clean website for the indie rock band Sunkissed. Built with Astro for fast performance and easy deployment.
 
 ## Getting Started
@@ -140,15 +142,9 @@ Your site will be live in a few minutes with a free `.netlify.app` URL. You can 
 2. Install the Astro GitHub Pages adapter
 3. Follow the [Astro GitHub Pages guide](https://docs.astro.build/en/guides/deploy/github/)
 
-## Setting Up the Newsletter Form
+## Newsletter Form (Netlify Forms)
 
-The contact form uses Formspree (free for up to 50 submissions/month):
-
-1. Go to [formspree.io](https://formspree.io) and sign up
-2. Create a new form
-3. Copy your form ID
-4. Open `src/components/Contact.astro`
-5. Replace `YOUR_FORM_ID` in the form action URL with your actual form ID
+The newsletter forms use Netlify Forms, which is automatically enabled when deploying to Netlify. No additional configuration needed—form submissions will appear in your Netlify dashboard under **Forms**.
 
 ## Other Commands
 

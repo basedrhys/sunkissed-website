@@ -77,7 +77,7 @@ import { socialLinks } from '../data/socialLinks.js';
           <p class="newsletter-desc">
             Sign up for our newsletter to get the latest news, releases, and tour announcements.
           </p>
-          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="newsletter-form">
+          <form name="newsletter" method="POST" data-netlify="true" class="newsletter-form">
             <input type="email" name="email" placeholder="YOUR EMAIL" required />
             <button type="submit" class="btn-vintage"><span>SUBSCRIBE</span></button>
           </form>

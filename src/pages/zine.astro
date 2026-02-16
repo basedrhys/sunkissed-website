@@ -153,7 +153,7 @@ import { socialLinks, musicPlatforms } from '../data/socialLinks.js';
             <p class="newsletter-text">
               Get updates on new releases, shows, and exclusive content.
             </p>
-            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="newsletter-form">
+            <form name="newsletter" method="POST" data-netlify="true" class="newsletter-form">
               <input type="email" name="email" placeholder="your@email.com" required />
               <button type="submit" class="btn-zine">SUBSCRIBE</button>
             </form>
