@@ -27,7 +27,7 @@ const linksByCategory = getVisibleLinksByCategory();
     <!-- Navigation -->
     <nav class="site-nav" id="site-nav">
       <div class="nav-inner">
-        <a href="#" class="nav-logo">sunkissed</a>
+        <div class="nav-spacer"></div>
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
           <span></span>
           <span></span>
@@ -46,6 +46,7 @@ const linksByCategory = getVisibleLinksByCategory();
     <section class="hero">
       <div class="hero-bg"></div>
       <div class="hero-gradient-top"></div>
+      <div class="hero-gradient-bottom"></div>
 
       <!-- Hero CTA -->
       <a
@@ -182,7 +183,7 @@ const linksByCategory = getVisibleLinksByCategory();
 
   /* Hero Section with Photo Background */
   .hero {
-    min-height: 100vh;
+    min-height: min(100vh, 66.67vw);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -196,7 +197,29 @@ const linksByCategory = getVisibleLinksByCategory();
     background-image: url('/cover_photo_w_title.jpg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    background-color: #3a3228;
     z-index: 0;
+  }
+
+  .hero-gradient-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35%;
+    background: linear-gradient(180deg, transparent 0%, #3a3228 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* When viewport is more portrait than the image (3:2),
+     show full image width instead of cropping sides */
+  @media (max-aspect-ratio: 3/2) {
+    .hero-bg {
+      background-size: 100% auto;
+      background-position: top center;
+    }
   }
 
   .hero-gradient-top {
@@ -827,25 +850,6 @@ const linksByCategory = getVisibleLinksByCategory();
     justify-content: space-between;
   }
 
-  .nav-logo {
-    font-family: 'Anton', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 2px;
-    color: var(--cream-paper);
-    text-decoration: none;
-    text-transform: lowercase;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-  }
-
-  .site-nav.scrolled .nav-logo {
-    text-shadow: none;
-  }
-
-  .nav-logo:hover {
-    color: var(--acid-yellow);
-  }
-
   .nav-links {
     display: flex;
     gap: 2.5rem;
@@ -989,6 +993,15 @@ const linksByCategory = getVisibleLinksByCategory();
     }
   }
 
+  /* Tablet Responsive */
+  @media (max-width: 1024px) {
+    .hero-cta-btn {
+      font-size: 1.1rem;
+      padding: 16px 34px;
+      letter-spacing: 2px;
+    }
+  }
+
   /* Mobile Responsive */
   @media (max-width: 768px) {
     .nav-toggle {
@@ -1019,18 +1032,21 @@ const linksByCategory = getVisibleLinksByCategory();
     }
 
     .hero-cta-btn {
-      font-size: 1rem;
-      padding: 14px 28px;
+      font-size: 0.85rem;
+      padding: 14px 24px;
       letter-spacing: 2px;
-      bottom: 18%;
+      gap: 8px;
+      bottom: 12%;
+      max-width: calc(100% - 3rem);
+      white-space: nowrap;
       box-shadow:
         4px 4px 0 var(--psychedelic-orange),
         8px 8px 0 var(--hot-coral);
     }
 
-    .hero {
-      min-height: auto;
-      aspect-ratio: 4/3;
+    .hero-cta-icon {
+      width: 20px;
+      height: 20px;
     }
 
     .title-main {
@@ -1104,6 +1120,25 @@ const linksByCategory = getVisibleLinksByCategory();
 
     .video-container {
       box-shadow: 4px 4px 0 var(--psychedelic-orange);
+    }
+
+    .scroll-indicator {
+      display: none;
+    }
+  }
+
+  /* Small phones */
+  @media (max-width: 380px) {
+    .hero-cta-btn {
+      font-size: 0.75rem;
+      padding: 12px 20px;
+      letter-spacing: 1px;
+      gap: 6px;
+    }
+
+    .hero-cta-icon {
+      width: 18px;
+      height: 18px;
     }
   }
 </style>
