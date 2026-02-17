@@ -31,7 +31,7 @@ export const socialLinks = [
   },
   {
     name: 'Bandcamp',
-    url: 'https://sunkissed-band.bandcamp.com',
+    url: 'https://sunkissed-band.bandcamp.com/',
     color: '#1DA0C3',
     icon: 'M0 9.133L9.6 20h14.4L14.4 9.133H0zm12.168 6.534h-2.195l.48-1.867H8.632l-.48 1.867H6.157l.48-1.867H5.17l.48-1.6h1.467l.32-1.2H5.97l.48-1.6h1.467l.48-1.867h2.195l-.48 1.867h1.821l.48-1.867h2.195l-.48 1.867h1.467l-.48 1.6h-1.467l-.32 1.2h1.467l-.48 1.6h-1.467l-.48 1.867zm-.32-3.467h-1.821l.32-1.2h1.821l-.32 1.2z',
     ariaLabel: 'Listen on Bandcamp',
