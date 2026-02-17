@@ -2,15 +2,15 @@
 const singles = [
   {
     title: "On the Sun Kissed Hills of San Francisco",
-    description: "Debut single. Guitar-driven indie rock about leaving home for a city that doesn't feel like home yet.",
-    spotifyTrack: "https://open.spotify.com/track/6A5JXtA3Vri935nBwSc1jY",
     spotifyEmbed: "https://open.spotify.com/embed/track/6A5JXtA3Vri935nBwSc1jY?utm_source=generator&theme=0",
   },
   {
     title: "Echos",
-    description: "Synth-driven, up-tempo. The high-energy side of the band.",
-    spotifyTrack: "https://open.spotify.com/track/7odv7SoCNwUgOCwoC3QTId",
     spotifyEmbed: "https://open.spotify.com/embed/track/7odv7SoCNwUgOCwoC3QTId?utm_source=generator&theme=0",
+  },
+  {
+    title: "Ocean Breeze",
+    spotifyEmbed: "https://open.spotify.com/embed/track/3l7ToRWBijVh1EB1pCSVn7?utm_source=generator&theme=0",
   },
 ];
 ---
@@ -24,21 +24,15 @@ const singles = [
     <div class="singles-grid">
       {singles.map((single) => (
         <div class="single-card">
-          <div class="single-embed">
-            <iframe
-              src={single.spotifyEmbed}
-              width="100%"
-              height="152"
-              frameborder="0"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-              style="border-radius: 0;"
-            ></iframe>
-          </div>
-          <div class="single-info">
-            <h3 class="single-title">{single.title}</h3>
-            <p class="single-desc">{single.description}</p>
-          </div>
+          <iframe
+            src={single.spotifyEmbed}
+            width="100%"
+            height="152"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            style="border-radius: 0;"
+          ></iframe>
         </div>
       ))}
     </div>
@@ -57,13 +51,27 @@ const singles = [
         </a>
       </div>
     </div>
+
+    <div class="live-video-section">
+      <span class="live-video-label">LIVE AT BRICK & MORTAR</span>
+      <div class="live-video-container">
+        <iframe
+          src="https://www.youtube.com/embed/ufYwmKkvjN8"
+          title="Sunkissed Live at Brick & Mortar"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
   .music-showcase {
-    background: var(--cream-paper);
-    padding: 5rem 0;
+    background: var(--burnt-umber);
+    padding: 2rem 0 5rem 0;
   }
 
   .container {
@@ -74,61 +82,79 @@ const singles = [
 
   .section-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 
   .section-title {
     font-family: 'Anton', sans-serif;
-    font-size: 5rem;
+    font-size: 4rem;
     letter-spacing: 0.05em;
-    color: var(--burnt-umber);
-    text-shadow: 4px 4px 0 var(--acid-yellow);
+    color: var(--acid-yellow);
+    text-shadow: 4px 4px 0 var(--psychedelic-orange);
   }
 
   .singles-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto 2rem;
   }
 
   .single-card {
-    border: 4px solid var(--burnt-umber);
-    background: var(--cream-paper);
-    box-shadow: 6px 6px 0 var(--psychedelic-orange);
+    border: 5px solid var(--acid-yellow);
+    background: #000;
+    box-shadow:
+      8px 8px 0 var(--psychedelic-orange),
+      16px 16px 0 rgba(0, 0, 0, 0.15);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    transition: all 0.3s ease;
   }
 
-  .single-embed {
-    border-bottom: 3px solid var(--burnt-umber);
+  .single-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow:
+      12px 12px 0 var(--psychedelic-orange),
+      20px 20px 0 rgba(0, 0, 0, 0.15);
   }
 
-  .single-embed iframe {
+  .single-card iframe {
     display: block;
   }
 
-  .single-info {
-    padding: 1.5rem;
-    flex: 1;
+  .live-video-section {
+    margin-bottom: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .single-title {
+  .live-video-label {
     font-family: 'Anton', sans-serif;
     font-size: 1.2rem;
-    letter-spacing: 2px;
-    color: var(--burnt-umber);
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--acid-yellow);
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.9;
   }
 
-  .single-desc {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--burnt-umber);
-    opacity: 0.8;
+  .live-video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: min(50.625%, 506px);
+    height: 0;
+    overflow: hidden;
+    border: 6px solid var(--acid-yellow);
+    box-shadow: 8px 8px 0 var(--psychedelic-orange);
+  }
+
+  .live-video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .stream-links {
@@ -136,48 +162,84 @@ const singles = [
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
+    margin: 1rem 0 3rem 0;
   }
 
   .stream-label {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 4px;
-    color: var(--burnt-umber);
-    opacity: 0.6;
+    font-family: 'Anton', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 5px;
+    color: var(--acid-yellow);
+    opacity: 0.85;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
   }
 
   .stream-icons {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
   .stream-link {
-    color: var(--burnt-umber);
+    color: var(--cream-paper);
     transition: all 0.3s ease;
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
   .stream-link:hover {
-    color: var(--psychedelic-orange);
+    color: var(--acid-yellow);
     opacity: 1;
-    transform: scale(1.15);
+    transform: translateY(-3px) scale(1.15);
   }
 
   .stream-icon {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+  }
+
+  @media (max-width: 1024px) {
+    .singles-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+    }
   }
 
   @media (max-width: 768px) {
-    .singles-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
+    .section-title {
+      font-size: 2.5rem;
     }
 
-    .section-title {
-      font-size: 3rem;
+    .single-card {
+      box-shadow:
+        6px 6px 0 var(--psychedelic-orange),
+        12px 12px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .single-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow:
+        8px 8px 0 var(--psychedelic-orange),
+        14px 14px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .live-video-label {
+      font-size: 1rem;
+      letter-spacing: 3px;
+    }
+
+    .live-video-container {
+      box-shadow: 4px 4px 0 var(--psychedelic-orange);
+    }
+
+    .stream-icons {
+      gap: 1.5rem;
+    }
+
+    .stream-icon {
+      width: 28px;
+      height: 28px;
     }
   }
 </style>

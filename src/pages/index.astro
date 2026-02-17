@@ -2,8 +2,7 @@
 import { getVisibleLinksByCategory } from '../data/socialLinks.js';
 import PressBar from '../components/PressBar.astro';
 import MusicShowcase from '../components/MusicShowcase.astro';
-import VideoSection from '../components/VideoSection.astro';
-import Shows from '../components/Shows.astro';
+import BehindTheScenes from '../components/BehindTheScenes.astro';
 
 const linksByCategory = getVisibleLinksByCategory();
 ---
@@ -17,7 +16,7 @@ const linksByCategory = getVisibleLinksByCategory();
     <link rel="icon" type="image/png" href="/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dela+Gothic+One&family=Josefin+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dela+Gothic+One&family=Josefin+Sans:wght@400;600;700&family=Reenie+Beanie&display=swap" rel="stylesheet" />
     <title>sunkissed</title>
   </head>
   <body>
@@ -27,7 +26,7 @@ const linksByCategory = getVisibleLinksByCategory();
     <!-- Navigation -->
     <nav class="site-nav" id="site-nav">
       <div class="nav-inner">
-        <div class="nav-spacer"></div>
+        <a href="#" class="nav-logo-link"><img src="/logo.png" alt="sunkissed" class="nav-logo" /></a>
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
           <span></span>
           <span></span>
@@ -35,8 +34,7 @@ const linksByCategory = getVisibleLinksByCategory();
         </button>
         <div class="nav-links" id="nav-links">
           <a href="#music">Music</a>
-          <a href="#video">Video</a>
-          <a href="#shows">Shows</a>
+          <a href="#photos">Photos</a>
           <a href="#contact">Connect</a>
         </div>
       </div>
@@ -72,14 +70,30 @@ const linksByCategory = getVisibleLinksByCategory();
     <!-- Press Bar -->
     <PressBar />
 
+    <!-- Sun Kissed Dreams Tour -->
+    <section class="tour-video-section">
+      <div class="container">
+        <div class="video-wrapper">
+          <span class="video-label">LATEST VIDEO</span>
+          <div class="tour-video-container">
+            <iframe
+              src="https://www.youtube.com/embed/zNSEwreNbI0"
+              title="Sun Kissed Dreams Tour"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Music -->
     <MusicShowcase />
 
-    <!-- Video -->
-    <VideoSection />
-
-    <!-- Shows -->
-    <Shows />
+    <!-- Behind the Scenes -->
+    <BehindTheScenes />
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
@@ -137,6 +151,10 @@ const linksByCategory = getVisibleLinksByCategory();
   }
 
   :root {
+    --quote-font: 'Reenie Beanie', cursive;
+    --quote-color: #C4A000;
+    --quote-opacity: 0.45;
+    --quote-size: 1.8rem;
     --psychedelic-orange: #FF5500;
     --electric-purple: #8B00FF;
     --acid-yellow: #FFE600;
@@ -386,6 +404,60 @@ const linksByCategory = getVisibleLinksByCategory();
     letter-spacing: 0.05em;
     color: var(--burnt-umber);
     text-shadow: 4px 4px 0 var(--acid-yellow);
+  }
+
+  /* Tour Video Section */
+  .tour-video-section {
+    background: var(--cream-paper);
+    padding: 3rem 0 4rem 0;
+  }
+
+  .video-wrapper {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .video-label {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    color: var(--burnt-umber);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .tour-quote {
+    font-family: var(--quote-font);
+    font-size: var(--quote-size);
+    line-height: 1.1;
+    color: var(--quote-color);
+    opacity: var(--quote-opacity);
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-buffer {
+    background: var(--cream-paper);
+    padding: 1.5rem 0;
+  }
+
+  .tour-video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: min(50.625%, 506px);
+    height: 0;
+    overflow: hidden;
+    border: 6px solid var(--burnt-umber);
+    box-shadow: 8px 8px 0 var(--psychedelic-orange);
+  }
+
+  .tour-video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   /* About Section */
@@ -841,6 +913,26 @@ const linksByCategory = getVisibleLinksByCategory();
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
   }
 
+  .nav-logo-link {
+    display: flex;
+    text-decoration: none;
+  }
+
+  .nav-logo {
+    height: 44px;
+    width: auto;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  .site-nav.scrolled .nav-logo {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+
   .nav-inner {
     max-width: 1100px;
     margin: 0 auto;
@@ -1068,6 +1160,19 @@ const linksByCategory = getVisibleLinksByCategory();
       font-size: 3rem;
     }
 
+    .video-label {
+      font-size: 1rem;
+      letter-spacing: 3px;
+    }
+
+    .tour-quote {
+      font-size: 1.4rem;
+    }
+
+    .tour-video-container {
+      box-shadow: 4px 4px 0 var(--psychedelic-orange);
+    }
+
     .about-layout {
       grid-template-columns: 1fr;
       gap: 3rem;
@@ -1143,6 +1248,7 @@ const linksByCategory = getVisibleLinksByCategory();
   }
 </style>
 
+
 <script>
   // Nav scroll behavior
   const nav = document.getElementById('site-nav');
@@ -1187,4 +1293,5 @@ const linksByCategory = getVisibleLinksByCategory();
       links?.classList.remove('open');
     });
   });
+
 </script>
