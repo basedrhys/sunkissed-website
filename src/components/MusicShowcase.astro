@@ -1,0 +1,245 @@
+---
+const singles = [
+  {
+    title: "On the Sun Kissed Hills of San Francisco",
+    spotifyEmbed: "https://open.spotify.com/embed/track/6A5JXtA3Vri935nBwSc1jY?utm_source=generator&theme=0",
+  },
+  {
+    title: "Echos",
+    spotifyEmbed: "https://open.spotify.com/embed/track/7odv7SoCNwUgOCwoC3QTId?utm_source=generator&theme=0",
+  },
+  {
+    title: "Ocean Breeze",
+    spotifyEmbed: "https://open.spotify.com/embed/track/3l7ToRWBijVh1EB1pCSVn7?utm_source=generator&theme=0",
+  },
+];
+---
+
+<section id="music" class="music-showcase">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">MUSIC</h2>
+    </div>
+
+    <div class="singles-grid">
+      {singles.map((single) => (
+        <div class="single-card">
+          <iframe
+            src={single.spotifyEmbed}
+            width="100%"
+            height="152"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            style="border-radius: 0;"
+          ></iframe>
+        </div>
+      ))}
+    </div>
+
+    <div class="stream-links">
+      <span class="stream-label">STREAM EVERYWHERE</span>
+      <div class="stream-icons">
+        <a href="https://open.spotify.com/artist/2HpxxPc77ouRakjIwTfAie" target="_blank" rel="noopener noreferrer" aria-label="Spotify" class="stream-link">
+          <svg viewBox="0 0 24 24" class="stream-icon"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://music.apple.com/us/artist/sunkissed/1791491064" target="_blank" rel="noopener noreferrer" aria-label="Apple Music" class="stream-link">
+          <svg viewBox="0 0 24 24" class="stream-icon"><path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.193.4-1.336.53-2.3 1.452-2.865 2.78-.192.448-.292.925-.363 1.408-.056.392-.088.785-.1 1.18 0 .032-.007.062-.01.093v12.223c.01.14.017.283.027.424.05.815.154 1.624.497 2.373.65 1.42 1.738 2.353 3.234 2.801.42.127.856.187 1.293.228.555.053 1.11.06 1.667.06h11.03a12.5 12.5 0 001.57-.1c.822-.106 1.596-.35 2.295-.81a5.046 5.046 0 001.88-2.207c.186-.42.293-.87.37-1.324.113-.675.138-1.358.137-2.04-.002-3.8 0-7.595-.003-11.393zm-6.423 3.99v5.712c0 .417-.058.827-.244 1.206-.29.59-.76.962-1.388 1.14-.35.1-.706.157-1.07.173-.95.045-1.773-.6-1.943-1.536a1.88 1.88 0 011.038-2.022c.323-.16.67-.25 1.018-.324.378-.082.758-.153 1.134-.24.274-.063.457-.23.51-.516a.904.904 0 00.02-.193c0-1.815 0-3.63-.002-5.443a.725.725 0 00-.026-.185c-.04-.15-.15-.243-.304-.234-.16.01-.318.035-.475.066-.76.15-1.52.303-2.28.456l-2.325.47-1.374.278c-.016.003-.032.01-.048.013-.277.077-.377.203-.39.49-.002.042 0 .086 0 .13-.002 2.602 0 5.204-.003 7.805 0 .42-.047.836-.215 1.227-.278.64-.77 1.04-1.434 1.233-.35.1-.71.16-1.075.172-.96.036-1.755-.6-1.92-1.544-.14-.812.23-1.685 1.154-2.075.357-.15.73-.232 1.108-.31.287-.06.575-.116.86-.177.383-.083.583-.323.6-.714v-.15c0-2.96 0-5.922.002-8.882 0-.123.013-.25.042-.37.07-.285.273-.448.546-.518.255-.066.515-.112.774-.165.733-.15 1.466-.296 2.2-.444l2.27-.46c.67-.134 1.34-.27 2.01-.403.22-.043.442-.088.663-.106.31-.025.523.17.554.482.008.073.012.148.012.223.002 1.91.002 3.822 0 5.732z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://music.youtube.com/channel/UCPn1uc9EwEFJb-eytnnQiuA" target="_blank" rel="noopener noreferrer" aria-label="YouTube Music" class="stream-link">
+          <svg viewBox="0 0 24 24" class="stream-icon"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.104c-3.924 0-7.104-3.18-7.104-7.104S8.076 4.896 12 4.896s7.104 3.18 7.104 7.104-3.18 7.104-7.104 7.104zm0-13.332c-3.432 0-6.228 2.796-6.228 6.228S8.568 18.228 12 18.228s6.228-2.796 6.228-6.228S15.432 5.772 12 5.772zM9.684 15.54V8.46L15.816 12l-6.132 3.54z" fill="currentColor"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="live-video-section">
+      <span class="live-video-label">LIVE AT BRICK & MORTAR</span>
+      <div class="live-video-container">
+        <iframe
+          src="https://www.youtube.com/embed/ufYwmKkvjN8"
+          title="Sunkissed Live at Brick & Mortar"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .music-showcase {
+    background: var(--burnt-umber);
+    padding: 2rem 0 5rem 0;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 4rem;
+    letter-spacing: 0.05em;
+    color: var(--acid-yellow);
+    text-shadow: 4px 4px 0 var(--psychedelic-orange);
+  }
+
+  .singles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+  }
+
+  .single-card {
+    border: 5px solid var(--acid-yellow);
+    background: #000;
+    box-shadow:
+      8px 8px 0 var(--psychedelic-orange),
+      16px 16px 0 rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .single-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow:
+      12px 12px 0 var(--psychedelic-orange),
+      20px 20px 0 rgba(0, 0, 0, 0.15);
+  }
+
+  .single-card iframe {
+    display: block;
+  }
+
+  .live-video-section {
+    margin-bottom: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .live-video-label {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    color: var(--acid-yellow);
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  .live-video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: min(50.625%, 506px);
+    height: 0;
+    overflow: hidden;
+    border: 6px solid var(--acid-yellow);
+    box-shadow: 8px 8px 0 var(--psychedelic-orange);
+  }
+
+  .live-video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .stream-links {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1rem 0 3rem 0;
+  }
+
+  .stream-label {
+    font-family: 'Anton', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 5px;
+    color: var(--acid-yellow);
+    opacity: 0.85;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .stream-icons {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .stream-link {
+    color: var(--cream-paper);
+    transition: all 0.3s ease;
+    opacity: 0.8;
+  }
+
+  .stream-link:hover {
+    color: var(--acid-yellow);
+    opacity: 1;
+    transform: translateY(-3px) scale(1.15);
+  }
+
+  .stream-icon {
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+  }
+
+  @media (max-width: 1024px) {
+    .singles-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2.5rem;
+    }
+
+    .single-card {
+      box-shadow:
+        6px 6px 0 var(--psychedelic-orange),
+        12px 12px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .single-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow:
+        8px 8px 0 var(--psychedelic-orange),
+        14px 14px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .live-video-label {
+      font-size: 1rem;
+      letter-spacing: 3px;
+    }
+
+    .live-video-container {
+      box-shadow: 4px 4px 0 var(--psychedelic-orange);
+    }
+
+    .stream-icons {
+      gap: 1.5rem;
+    }
+
+    .stream-icon {
+      width: 28px;
+      height: 28px;
+    }
+  }
+</style>
