@@ -316,55 +316,15 @@ const photos = [
     var isDown = false;
     var startX, scrollLeft, hasDragged;
 
-    // Auto-scroll
-    var autoScrollSpeed = 0.5; // pixels per frame
-    var autoScrollPaused = false;
-    var resumeTimeout;
-
-    function pauseAutoScroll() {
-      autoScrollPaused = true;
-      clearTimeout(resumeTimeout);
-    }
-
-    function scheduleResume() {
-      clearTimeout(resumeTimeout);
-      resumeTimeout = setTimeout(function() {
-        autoScrollPaused = false;
-      }, 3000);
-    }
-
-    function autoScroll() {
-      if (!autoScrollPaused && lightbox.hidden) {
-        track.scrollLeft += autoScrollSpeed;
-        // Loop back to start when reaching the end
-        if (track.scrollLeft >= track.scrollWidth - track.clientWidth) {
-          track.scrollLeft = 0;
-        }
-      }
-      requestAnimationFrame(autoScroll);
-    }
-
-    requestAnimationFrame(autoScroll);
-
-    // Pause on hover/touch, resume after delay
-    track.addEventListener('mouseenter', pauseAutoScroll);
-    track.addEventListener('mouseleave', scheduleResume);
-    track.addEventListener('touchstart', pauseAutoScroll, { passive: true });
-    track.addEventListener('touchend', scheduleResume, { passive: true });
-
     track.addEventListener('mousedown', function(e) {
       isDown = true;
       hasDragged = false;
-      pauseAutoScroll();
       startX = e.pageX - track.offsetLeft;
       scrollLeft = track.scrollLeft;
     });
 
     track.addEventListener('mouseleave', function() { isDown = false; });
-    track.addEventListener('mouseup', function() {
-      isDown = false;
-      scheduleResume();
-    });
+    track.addEventListener('mouseup', function() { isDown = false; });
 
     track.addEventListener('mousemove', function(e) {
       if (!isDown) return;
