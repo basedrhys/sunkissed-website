@@ -2,7 +2,7 @@
 import { getVisibleLinksByCategory } from '../data/socialLinks.js';
 import PressBar from '../components/PressBar.astro';
 import MusicShowcase from '../components/MusicShowcase.astro';
-import BehindTheScenes from '../components/BehindTheScenes.astro';
+import PhotoCarousel from '../components/PhotoCarousel.astro';
 
 const linksByCategory = getVisibleLinksByCategory();
 ---
@@ -92,7 +92,7 @@ const linksByCategory = getVisibleLinksByCategory();
     <MusicShowcase />
 
     <!-- Behind the Scenes -->
-    <BehindTheScenes />
+    <PhotoCarousel />
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
