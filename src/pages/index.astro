@@ -51,6 +51,22 @@ const linksByCategory = getVisibleLinksByCategory();
           <span></span>
         </button>
         <div class="nav-links" id="nav-links">
+          <div class="nav-socials nav-socials-mobile">
+            {[...linksByCategory.social, ...linksByCategory.events].map((link) => (
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nav-social-link"
+                aria-label={link.ariaLabel}
+                title={link.name}
+              >
+                <svg viewBox="0 0 24 24" class="nav-social-icon" style={link.scale ? `transform: scale(${link.scale})` : ''}>
+                  <path d={link.icon} fill="currentColor" />
+                </svg>
+              </a>
+            ))}
+          </div>
           <a href="#music">Music</a>
           <a href="#photos">Photos</a>
           <a href="#contact">Connect</a>
@@ -1036,6 +1052,10 @@ const linksByCategory = getVisibleLinksByCategory();
     height: 22px;
   }
 
+  .nav-socials-mobile {
+    display: none;
+  }
+
   .nav-toggle {
     display: none;
     flex-direction: column;
@@ -1177,12 +1197,22 @@ const linksByCategory = getVisibleLinksByCategory();
     }
 
     .nav-socials {
-      gap: 1rem;
+      display: none;
     }
 
-    .nav-social-icon {
-      width: 18px;
-      height: 18px;
+    .nav-socials-mobile {
+      display: flex;
+      justify-content: center;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(255, 245, 230, 0.2);
+      padding-bottom: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-socials-mobile .nav-social-icon {
+      width: 22px;
+      height: 22px;
     }
 
     .hero-cta-btn {
