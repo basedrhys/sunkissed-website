@@ -27,7 +27,6 @@ const linksByCategory = getVisibleLinksByCategory();
     <nav class="site-nav" id="site-nav">
       <div class="nav-inner">
         <div class="nav-left">
-          <a href="#" class="nav-logo-link"><img src="/logo.png" alt="sunkissed" class="nav-logo" /></a>
           <div class="nav-socials">
             {[...linksByCategory.social, ...linksByCategory.events].map((link) => (
               <a
@@ -45,6 +44,7 @@ const linksByCategory = getVisibleLinksByCategory();
             ))}
           </div>
         </div>
+        <a href="#" class="nav-logo-link"><img src="/logo.png" alt="sunkissed" class="nav-logo" /></a>
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
           <span></span>
           <span></span>
@@ -937,13 +937,13 @@ const linksByCategory = getVisibleLinksByCategory();
     left: 0;
     right: 0;
     z-index: 9999;
-    padding: 1.2rem 0;
+    padding: 0.5rem 0;
     transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
   }
 
   .site-nav.scrolled {
     background: var(--burnt-umber);
-    padding: 0.8rem 0;
+    padding: 0.3rem 0;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
   }
 
@@ -952,8 +952,18 @@ const linksByCategory = getVisibleLinksByCategory();
     text-decoration: none;
   }
 
+  .nav-logo-link:hover .nav-logo {
+    animation: wave 1s ease-in-out infinite;
+  }
+
+  @keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+  }
+
   .nav-logo {
-    height: 44px;
+    height: 52px;
     width: auto;
     opacity: 0;
     transform: scale(0.8);
@@ -970,7 +980,7 @@ const linksByCategory = getVisibleLinksByCategory();
   .nav-inner {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
