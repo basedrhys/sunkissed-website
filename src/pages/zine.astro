@@ -68,7 +68,7 @@ import { socialLinks, musicPlatforms } from '../data/socialLinks.js';
                 Two friends packed up their lives in Toronto and landed in San Francisco. It wasn't until six months later—after soaking in the Californian sun and feeling the late-night breeze—the music started flowing.
               </p>
               <p>
-                What emerged was a hazy blend of indie rock, surf-tinged guitars, dreamy bedroom pop, and the occasional psychedelic drift. Now a four-piece, sunkissed makes music that feels like sun-faded memories—nostalgic, a little restless, and entirely their own.
+                What emerged was a hazy blend of indie rock, surf-tinged guitars, dreamy bedroom pop, and the occasional psychedelic drift. Now a five-piece, sunkissed makes music that feels like sun-faded memories—nostalgic, a little restless, and entirely their own.
               </p>
             </div>
 
@@ -153,7 +153,11 @@ import { socialLinks, musicPlatforms } from '../data/socialLinks.js';
             <p class="newsletter-text">
               Get updates on new releases, shows, and exclusive content.
             </p>
-            <form name="newsletter" method="POST" data-netlify="true" class="newsletter-form">
+            <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="newsletter-form">
+              <input type="hidden" name="form-name" value="newsletter" />
+              <p hidden>
+                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+              </p>
               <input type="email" name="email" placeholder="your@email.com" required />
               <button type="submit" class="btn-zine">SUBSCRIBE</button>
             </form>

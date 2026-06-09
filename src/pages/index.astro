@@ -2,9 +2,17 @@
 import { getVisibleLinksByCategory } from '../data/socialLinks.js';
 import PressBar from '../components/PressBar.astro';
 import MusicShowcase from '../components/MusicShowcase.astro';
+import Shows from '../components/Shows.astro';
 import PhotoCarousel from '../components/PhotoCarousel.astro';
 
 const linksByCategory = getVisibleLinksByCategory();
+
+// SEO / social-share metadata
+const siteUrl = 'https://sunkissed.band';
+const pageTitle = 'sunkissed — Surf-Psych Rock from San Francisco';
+const pageDescription =
+  'sunkissed is a five-piece surf-psych rock band from San Francisco. Stream the singles, watch live videos, see photos, and catch an upcoming show.';
+const ogImage = `${siteUrl}/cover_photo_w_title.jpg`;
 ---
 
 <!doctype html>
@@ -12,12 +20,33 @@ const linksByCategory = getVisibleLinksByCategory();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="sunkissed - Indie Rock Band from San Francisco" />
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={siteUrl + '/'} />
+    <meta name="theme-color" content="#3D0C02" />
     <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+
+    <!-- Open Graph / Facebook / iMessage -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="sunkissed" />
+    <meta property="og:url" content={siteUrl + '/'} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="2304" />
+    <meta property="og:image:height" content="1536" />
+    <meta property="og:image:alt" content="sunkissed — five-piece surf-psych rock band from San Francisco" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dela+Gothic+One&family=Josefin+Sans:wght@400;600;700&family=Reenie+Beanie&display=swap" rel="stylesheet" />
-    <title>sunkissed</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <!-- Halftone Overlay -->
@@ -68,6 +97,7 @@ const linksByCategory = getVisibleLinksByCategory();
             ))}
           </div>
           <a href="#music">Music</a>
+          <a href="#shows">Shows</a>
           <a href="#photos">Photos</a>
           <a href="#contact">Connect</a>
           <a href="https://sunkissed-epk.notion.site" target="_blank" rel="noopener noreferrer">EPK</a>
@@ -126,6 +156,9 @@ const linksByCategory = getVisibleLinksByCategory();
     <!-- Music -->
     <MusicShowcase />
 
+    <!-- Shows / Tour -->
+    <Shows />
+
     <!-- Behind the Scenes -->
     <PhotoCarousel />
 
@@ -139,10 +172,17 @@ const linksByCategory = getVisibleLinksByCategory();
         </div>
 
         <div class="newsletter-panel">
+          <p class="newsletter-success" id="newsletter-success" hidden>
+            ☀ Thanks for subscribing — we'll be in touch.
+          </p>
           <p class="newsletter-desc">
             Sign up for updates on releases, and tour announcements.
           </p>
-          <form name="newsletter" method="POST" data-netlify="true" class="newsletter-form">
+          <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?subscribed=true" class="newsletter-form">
+            <input type="hidden" name="form-name" value="newsletter" />
+            <p class="hidden-field" hidden>
+              <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p>
             <input type="email" name="email" placeholder="YOUR EMAIL" required />
             <button type="submit" class="btn-vintage"><span>SUBSCRIBE</span></button>
           </form>
@@ -856,10 +896,25 @@ const linksByCategory = getVisibleLinksByCategory();
     color: var(--burnt-umber);
   }
 
+  .newsletter-success {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--psychedelic-orange);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 3px dashed var(--burnt-umber);
+  }
+
   .newsletter-form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+
+  .newsletter-form[hidden] {
+    display: none;
   }
 
   .newsletter-form input {
@@ -1443,5 +1498,15 @@ const linksByCategory = getVisibleLinksByCategory();
       nav?.classList.remove('menu-open');
     });
   });
+
+  // Newsletter success message (Netlify redirects here with ?subscribed=true on submit)
+  if (new URLSearchParams(window.location.search).has('subscribed')) {
+    document.getElementById('newsletter-success')?.removeAttribute('hidden');
+    document.querySelector('.newsletter-form')?.setAttribute('hidden', '');
+    document.querySelector('.newsletter-desc')?.setAttribute('hidden', '');
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    // Clean the param so a refresh doesn't re-trigger the message
+    history.replaceState(null, '', window.location.pathname);
+  }
 
 </script>

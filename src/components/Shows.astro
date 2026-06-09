@@ -10,9 +10,9 @@
     <div class="shows-content">
       <div class="bandsintown-widget">
         <a class="bit-widget-initializer"
-          data-artist-name="sunkissed"
+          data-artist-name="id_15559917"
           data-display-local-dates="false"
-          data-display-past-dates="false"
+          data-display-past-dates="true"
           data-auto-style="false"
           data-text-color="#3D0C02"
           data-link-color="#FF5500"
@@ -29,17 +29,25 @@
         <a href="https://www.bandsintown.com/a/15559917-sunkissed" target="_blank" rel="noopener noreferrer">View all shows on Bandsintown →</a>
       </div>
 
-      <div class="venues-past">
-        <span class="venues-label">PAST VENUES</span>
-        <div class="venues-list">
-          <span>Brick & Mortar Music Hall</span>
-          <span class="venue-dot">&middot;</span>
-          <span>Bottom of the Hill</span>
-          <span class="venue-dot">&middot;</span>
-          <span>SF State</span>
-          <span class="venue-dot">&middot;</span>
-          <span>KSFS Radio</span>
-        </div>
+      <div class="recent-shows">
+        <span class="venues-label">RECENT SHOWS</span>
+        <ul class="show-list">
+          <li class="show-row">
+            <span class="show-date">May 30, 2026</span>
+            <span class="show-venue">SF Porchfest</span>
+            <span class="show-city">San Francisco, CA</span>
+          </li>
+          <li class="show-row">
+            <span class="show-date">May 17, 2026</span>
+            <span class="show-venue">Hook &amp; Ladder Vineyards</span>
+            <span class="show-city">Santa Rosa, CA</span>
+          </li>
+          <li class="show-row">
+            <span class="show-date">May 15, 2026</span>
+            <span class="show-venue">Neck of the Woods</span>
+            <span class="show-city">San Francisco, CA</span>
+          </li>
+        </ul>
       </div>
 
       <div class="booking-info">
@@ -106,10 +114,53 @@
     color: var(--electric-purple);
   }
 
-  .venues-past {
-    text-align: center;
-    padding: 2rem 0;
+  .recent-shows {
+    padding: 2rem 0 0.5rem;
     border-top: 3px dashed var(--burnt-umber);
+  }
+
+  .recent-shows .venues-label {
+    text-align: center;
+  }
+
+  .show-list {
+    list-style: none;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .show-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(61, 12, 2, 0.15);
+  }
+
+  .show-date {
+    font-family: 'Anton', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: var(--psychedelic-orange);
+    white-space: nowrap;
+  }
+
+  .show-venue {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: var(--burnt-umber);
+  }
+
+  .show-city {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--burnt-umber);
+    opacity: 0.6;
+    white-space: nowrap;
   }
 
   .venues-label {
@@ -121,22 +172,6 @@
     opacity: 0.5;
     display: block;
     margin-bottom: 1rem;
-  }
-
-  .venues-list {
-    font-family: 'Anton', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 2px;
-    color: var(--burnt-umber);
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-  }
-
-  .venue-dot {
-    color: var(--psychedelic-orange);
-    font-size: 1.3rem;
   }
 
   .booking-info {
@@ -172,8 +207,11 @@
       font-size: 3rem;
     }
 
-    .venues-list {
-      font-size: 0.95rem;
+    .show-row {
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+      text-align: center;
+      padding: 1rem 0;
     }
   }
 </style>
