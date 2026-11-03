@@ -54,9 +54,7 @@ Navigation, SocialSidebar, Hero, About, Music, Contact
 `src/styles/global.css` defines CSS custom properties (colors, spacing, typography) but the main page defines its own variables inline.
 
 ## Newsletter Form
-Forms use Formspree. Replace `YOUR_FORM_ID` placeholder with actual Formspree form ID in:
-- `src/pages/index.astro`
-- `src/pages/zine.astro`
+The signup form in `src/pages/index.astro` posts to the band's Kit (kit.com) "fan list" landing page form (ID `10136084`), so signups land directly on the Kit list with double opt-in. A small script submits it in the background and shows the success message in place. `src/pages/zine.astro` still uses an older Netlify form.
 
 ## Key Files
 - `src/pages/index.astro` - Main page (self-contained)
